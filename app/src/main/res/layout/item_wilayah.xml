@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rootLayout"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+
+        >
+
+    <customfonts.TextViewSFProDisplayRegular
+        android:textColor="@color/white"
+        android:background="@drawable/bgwil"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="8dp"
+        android:textAlignment="center"
+        android:id="@+id/itemwilayah"
+        android:layout_width="match_parent"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+
+        android:text="makanan"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

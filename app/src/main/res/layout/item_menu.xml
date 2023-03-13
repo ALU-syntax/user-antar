@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:id="@+id/item_menu"
+    android:layout_marginBottom="10dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <customfonts.EditTextSFProDisplayRegular
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp"
+        android:background="@drawable/bg_non_merchant"
+        android:textColor="@color/black"
+        android:id="@+id/item_name"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Nama Barang (Ketik Secara Detail)"
+        android:textColorHint="@color/grey_500"
+        android:singleLine="true" />
+
+    <RelativeLayout
+        android:layout_marginTop="6dp"
+        android:id="@+id/utama"
+        android:background="@drawable/bg_non_merchant"
+        android:layout_below="@id/item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <customfonts.EditTextSFProDisplayRegular
+            android:paddingHorizontal="5dp"
+            android:textColor="@color/black"
+            android:id="@+id/item_price"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:hint=" Estimasi Harga Barang"
+            android:textColorHint="@color/grey_500"
+            android:singleLine="true" />
+
+        <ImageView
+
+            android:id="@+id/item_leftButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/item_price"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:src="@drawable/ic_left_blue" />
+
+        <customfonts.TextViewSFProDisplayRegular
+            android:id="@+id/item_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/item_leftButton"
+            android:gravity="center_horizontal"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/item_rightButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_toRightOf="@+id/item_quantity"
+            android:src="@drawable/ic_right_blue" />
+
+
+        <customfonts.TextViewSFProDisplayRegular
+            android:paddingHorizontal="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/black"
+            android:id="@+id/price_total"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="Rp. 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/item_rightButton" />
+
+
+    </RelativeLayout>
+
+    <customfonts.EditTextSFProDisplayRegular
+        android:layout_below="@+id/utama"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="5dp"
+        android:background="@drawable/bg_non_merchant"
+        android:textColor="@color/black"
+        android:layout_marginTop="6dp"
+        android:id="@+id/item_catatan"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Catatan"
+        android:textColorHint="@color/grey_500"
+        android:singleLine="true" />
+
+</RelativeLayout>

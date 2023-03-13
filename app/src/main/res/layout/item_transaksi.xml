@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlitemtransaksi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:id="@+id/promobadge"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/promobadge"
+            android:elevation="15dp"
+            android:outlineProvider="none">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:duration="800">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/promobadge"
+                    android:backgroundTint="@color/light_gray" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        </FrameLayout>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_placeholder"
+            card_view:riv_corner_radius="10dp" />
+
+        <LinearLayout
+            android:id="@+id/lltext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/icon"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/icon"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <customfonts.TextViewSFProDisplayMedium
+                    android:id="@+id/namalayanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="Nasi Goreng"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <customfonts.TextViewSFProDisplayRegular
+                    android:id="@+id/deskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:text="nama Layanan nama Layanan nama Layanan nama Layanan "
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <customfonts.EditTextSFProDisplayRegular
+                    android:id="@+id/catatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/transparent"
+                    android:gravity="top"
+                    android:hint="Add Notes++"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="2"
+                    android:textColor="@color/colorgradient"
+                    android:textColorHint="@color/gray"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_toRightOf="@id/icon"
+                android:gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:orientation="vertical">
+
+                <customfonts.TextViewSFProDisplayMedium
+                    android:id="@+id/hargapromo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="Rp.50.000"
+                    android:textColor="@color/gray"
+                    android:textSize="12dp"
+                    android:visibility="visible" />
+
+                <customfonts.TextViewSFProDisplayMedium
+                    android:id="@+id/harga"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="Rp.50.000"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:id="@+id/lladdremove"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/icon"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <customfonts.TextViewSFProDisplayMedium
+                        android:id="@+id/remove_quantity"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/btn_plus"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/quantity_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:background="@color/light_gray"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <customfonts.TextViewSFProDisplayMedium
+                        android:id="@+id/add_quantity"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/btn_min"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/lltext"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/gray" />
+</LinearLayout>

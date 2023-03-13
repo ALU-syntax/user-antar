@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">BUMdesKu</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCiWtYdtXeZALg4FM9bP2dysxDaptNpGr8</string>
+    <string name="loginplaystore">821651748354835</string>
+    <string name="introtext1">Daftar!</string>
+    <string name="introdesc1">BUMDesKU transportasi lokal Indonesia</string>
+    <string name="introtext2">Pemesanan Instan</string>
+    <string name="introdesc2">Kamu bisa pesan pilihan layanan jasa kami</string>
+    <string name="introtext3">Pengiriman Yang Cepat</string>
+    <string name="introdesc3">Dengan driver berpengalaman!</string>
+
+    <string name="exit">Apakah kamu yakin ingin keluar dari aplikasi?</string>
+    <string name="yes">Ya!</string>
+    <string name="no">Tidak</string>
+
+    <string name="email">Email</string>
+    <string name="verifydesc">Kami mengirim kode verifikasi nomor</string>
+    <string name="norecieve">Tidak mendapatkan kode?</string>
+    <string name="resend">Kirim ulang</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="privacy">Dengan masuk anda menyetujui  <![CDATA[<b><font color=#6DC0FF>Syarat dan kebijakan</font></b>]]></string>
+    <string name="text_with_bullet">\u2022</string>
+    <string name="lupa">Lupa Password?</string>
+    <string name="button_signIn">Login</string>
+    <string name="button_signUp">Daftar</string>
+    <string name="button_dontHaveAccount">Belum punya akun?</string>
+    <string name="wrongnumber">Format nomor salah</string>
+    <string name="phoneemailwrong">Password atau no hp salah!</string>
+    <string name="phonepass">No hp dan password tidak boleh kosong!</string>
+    <string name="phoneempty">No hp tidak boleh kosong!</string>
+    <string name="passempty">Password tidak boleh kosong!</string>
+    <string name="emailempty">Email tidak boleh kosong!</string>
+
+    <string name="hint_name">Nama</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Contoh : 85370xxxxxx</string>
+    <string name="hint_birthday">Tanggal Lahir</string>
+    <string name="hint_password">Password</string>
+
+    <string name="menu_home">Beranda</string>
+    <string name="menu_chat">chat</string>
+    <string name="menu_order">Order</string>
+    <string name="menu_favourite">Favourit</string>
+    <string name="menu_profile">Profil</string>
+    <string name="text_cancel">Batal</string>
+    <string name="getstarted">Mulai</string>
+
+    <string name="ride_location">Lokasi</string>
+    <string name="ride_destination">Tujuan</string>
+
+    <string name="ride_note">Catatan</string>
+
+    <string name="ride_setPickUp">Jemput</string>
+    <string name="ride_setDestination">Tujuan</string>
+    <string name="text_order">Order</string>
+    <string name="waiting_desc">Kami sedang mencari driver terdekat</string>
+    <string name="waiting_pleaseWait">Mohon tunggu....</string>
+    <string name="text_noInternet">Tidak ada akses internet</string>
+
+    <string name="notification_cancel">Order berhasil dibatalkan</string>
+    <string name="notification_start">ke lokasi tujuan</string>
+    <string name="notification_accept">Anda menemukan driver!</string>
+    <string name="notification_finish">Terima kasih telah menggunakan layanan kami</string>
+    <string name="input_no">Pada saat login atau register mohon tidak menambahkan angka 0 lagi pada saat input nomor hp</string>
+    <string name="mart_order">Pesan</string>
+    <string name="mart_product">Barang</string>
+    <string name="mart_plus">+</string>
+    <string name="mart_minus">-</string>
+    <string name="mart_details">Detail</string>
+    <string name="mart_to">Tujuan</string>
+    <string name="mart_estimatedBiaya">Estimasi Biaya</string>
+    <string name="mart_useLocation">Set Lokasi ini</string>
+    <string name="mart_searchLocation">Lokasi Pencarian…</string>\
+    <string name="mbox_note_insurance">Pilih besaran premi dan lingkup asuransi sesuai dengan nilai barang dan kebutuhan anda</string>
+    <string name="main_pickLocation">Pilih lokasi</string>
+    <string name="text_addressNotAvailable">Alamat tidak ada.</string>
+</resources>

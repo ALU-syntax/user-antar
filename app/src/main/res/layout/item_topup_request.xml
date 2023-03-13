@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <customfonts.TextViewSFProDisplayRegular
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/idPelTitle"
+        android:textColor="@color/grey_600"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="ID Pelanggan" />
+
+    <customfonts.TextViewSFProDisplayMedium
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idPelTitle"
+        android:id="@+id/idPel"
+        android:layout_width="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="makanan" />
+
+    <customfonts.TextViewSFProDisplayMedium
+        android:id="@+id/priceTopUp"
+        app:layout_constraintTop_toTopOf="@+id/idPelTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/idPel"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/green"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey_400"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
