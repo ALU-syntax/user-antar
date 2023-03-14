@@ -1,153 +1,34 @@
 {
   "project_info": {
-    "project_number": "264247365819",
-    "firebase_url": "https://bumdesku-4fa0a-default-rtdb.firebaseio.com",
-    "project_id": "bumdesku-4fa0a",
-    "storage_bucket": "bumdesku-4fa0a.appspot.com"
+    "project_number": "1027392320120",
+    "firebase_url": "https://antar-8f4d3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "antar-8f4d3",
+    "storage_bucket": "antar-8f4d3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:264247365819:android:aa5dfabc6842860701599e",
-        "android_client_info": {
-          "package_name": "com.bumdesku.driver"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "264247365819-fns9536vgc6dk7gr70ogbit33abt7dfd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bumdesku.driver",
-            "certificate_hash": "1a791170b6aa266799e6d5ad6872e9581c9ca354"
-          }
-        },
-        {
-          "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBOxv-RgE782htLPv9Eb-Ln500S_DAyC_w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:264247365819:android:da3c28cd47712ba801599e",
-        "android_client_info": {
-          "package_name": "com.bumdesku.merchant"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "264247365819-mq3qf7v9tl3sqio5i3dk1b1jn49tutqh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bumdesku.merchant",
-            "certificate_hash": "1a791170b6aa266799e6d5ad6872e9581c9ca354"
-          }
-        },
-        {
-          "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBOxv-RgE782htLPv9Eb-Ln500S_DAyC_w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:264247365819:android:79e0bf3964bfe3a301599e",
-        "android_client_info": {
-          "package_name": "com.bumdesku.passenger"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "264247365819-r5597dq5s9u2q873t3ku2oukrtfukspi.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bumdesku.passenger",
-            "certificate_hash": "1a791170b6aa266799e6d5ad6872e9581c9ca354"
-          }
-        },
-        {
-          "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBOxv-RgE782htLPv9Eb-Ln500S_DAyC_w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:264247365819:android:eb20c56d9421af5801599e",
+        "mobilesdk_app_id": "1:1027392320120:android:639cec33dc1257dbc0738d",
         "android_client_info": {
           "package_name": "com.insoftbumdesku.passenger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "264247365819-11ro3juv0m9ef16fhftm68lkpkklbuc6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.insoftbumdesku.passenger",
-            "certificate_hash": "1a791170b6aa266799e6d5ad6872e9581c9ca354"
-          }
-        },
-        {
-          "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
+          "client_id": "1027392320120-3haurp2cavrsn9491i4fd9mtcgo9mn6q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBOxv-RgE782htLPv9Eb-Ln500S_DAyC_w"
+          "current_key": "AIzaSyCtOBGJYPE5yKeUQL1OcGMgl2LVCAluW7E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "264247365819-jm9v0nhjh3ptsqe9cp8sg4ddq3bemusb.apps.googleusercontent.com",
+              "client_id": "1027392320120-3haurp2cavrsn9491i4fd9mtcgo9mn6q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

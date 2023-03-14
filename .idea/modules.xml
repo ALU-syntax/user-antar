@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gotam.iml" filepath="$PROJECT_DIR$/Gotam.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Gotam.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Gotam.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Gotam.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Gotam.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Gotam.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Gotam.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Gotam.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Gotam.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-antar.iml" filepath="$PROJECT_DIR$/.idea/modules/user-antar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/user-antar.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/user-antar.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/user-antar.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/user-antar.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/user-antar.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/user-antar.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/user-antar.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/user-antar.app.unitTest.iml" />
     </modules>
   </component>
 </project>
