@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">BUMdesKu</string>
+    <string name="app_name">Antar</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCiWtYdtXeZALg4FM9bP2dysxDaptNpGr8</string>
     <string name="loginplaystore">821651748354835</string>
     <string name="introtext1">Daftar!</string>
-    <string name="introdesc1">BUMDesKU transportasi lokal Indonesia</string>
+    <string name="introdesc1">Antar transportasi lokal Indonesia</string>
     <string name="introtext2">Pemesanan Instan</string>
     <string name="introdesc2">Kamu bisa pesan pilihan layanan jasa kami</string>
     <string name="introtext3">Pengiriman Yang Cepat</string>

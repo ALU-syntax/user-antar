@@ -4,22 +4,22 @@ apply plugin: 'realm-android'
 android {
     signingConfigs {
         release {
-            storeFile file('/Volumes/Untitled/Programming/Projects.co.id/ojek bumdes android/Gotam/keystorebumdesku.jks')
-            storePassword 'bumdesku'
-            keyAlias 'bumdesku'
-            keyPassword 'bumdesku'
+            storeFile file('/Volumes/Untitled/Programming/Projects.co.id/antar.shop/user-antar/keystoreantar.jks')
+            storePassword '123456'
+            keyAlias 'Antar'
+            keyPassword '123456'
         }
         debug {
-            storeFile file('/Volumes/Untitled/Programming/Projects.co.id/ojek bumdes android/Gotam/keystorebumdesku.jks')
-            storePassword 'bumdesku'
-            keyAlias 'bumdesku'
-            keyPassword 'bumdesku'
+            storeFile file('/Volumes/Untitled/Programming/Projects.co.id/antar.shop/user-antar/keystoreantar.jks')
+            storePassword '123456'
+            keyAlias 'Antar'
+            keyPassword '123456'
         }
     }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
     defaultConfig {
-        applicationId "com.insoftbumdesku.passenger"
+        applicationId "com.antar.passenger"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 45
@@ -108,6 +108,7 @@ dependencies {
     implementation 'com.google.android:flexbox:0.3.2'
     implementation 'com.balysv:material-ripple:1.0.2'
     implementation 'com.duitku:duitku-android-sdk:1.0.3'
+    implementation 'com.google.android.gms:play-services-basement:17.5.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

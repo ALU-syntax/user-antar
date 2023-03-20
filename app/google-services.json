@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "1027392320120",
-    "firebase_url": "https://antar-8f4d3-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "antar-8f4d3",
-    "storage_bucket": "antar-8f4d3.appspot.com"
+    "project_number": "767374487207",
+    "firebase_url": "https://antar-dc91d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "antar-dc91d",
+    "storage_bucket": "antar-dc91d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1027392320120:android:639cec33dc1257dbc0738d",
+        "mobilesdk_app_id": "1:767374487207:android:7f6996d7eb32dbfd18f582",
         "android_client_info": {
-          "package_name": "com.insoftbumdesku.passenger"
+          "package_name": "com.antar.passenger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1027392320120-3haurp2cavrsn9491i4fd9mtcgo9mn6q.apps.googleusercontent.com",
+          "client_id": "767374487207-i8ng6stqsvpmk447ha603l5lbp0btp8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antar.passenger",
+            "certificate_hash": "634488f2e6a11273f4396fcef74f24abf261eaea"
+          }
+        },
+        {
+          "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCtOBGJYPE5yKeUQL1OcGMgl2LVCAluW7E"
+          "current_key": "AIzaSyAfuDg3q4Ksr71-OpCwR2QHKWR25bQjCiQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1027392320120-3haurp2cavrsn9491i4fd9mtcgo9mn6q.apps.googleusercontent.com",
+              "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

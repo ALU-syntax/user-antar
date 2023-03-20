@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.antar.passenger",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 45,
+      "versionName": "1.2.5",
+      "enabled": true,
+      "outputFile": "app-release.apk"
+    }
+  ]
+}
