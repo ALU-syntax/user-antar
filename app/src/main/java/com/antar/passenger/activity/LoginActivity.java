@@ -409,7 +409,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken token) {
                 phoneVerificationId = verificationId;
                 resendToken = token;
-                sendTo.setText("Dikirim ke ( " + phoneNumber + " )");
+//                sendTo.setText("Dikirim ke ( " + phoneNumber + " )");
+                sendTo.setText(R.string.send_to + "( " + phoneNumber + " )");
                 progresshide();
                 viewFlipper.setInAnimation(LoginActivity.this, R.anim.from_right);
                 viewFlipper.setOutAnimation(LoginActivity.this, R.anim.to_left);
