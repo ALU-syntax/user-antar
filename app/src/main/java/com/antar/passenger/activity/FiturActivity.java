@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.antar.passenger.R;
+import com.antar.passenger.utils.LocaleHelper;
 
 
 public class FiturActivity extends AppCompatActivity {
@@ -21,6 +22,11 @@ public class FiturActivity extends AppCompatActivity {
     ImageView backbtn, images;
     RelativeLayout rlnotif, rlprogress;
     String disableback;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.antar.passenger.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.antar.passenger.item.PromoItem;
 import com.antar.passenger.json.PromoRequestJson;
 import com.antar.passenger.json.PromoResponseJson;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -33,6 +35,11 @@ public class PromoActivity extends AppCompatActivity {
     PromoItem promoItem;
     RelativeLayout rlnodata;
     ImageView backButton;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.antar.passenger.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +32,7 @@ import com.antar.passenger.models.Notif;
 import com.antar.passenger.models.User;
 import com.antar.passenger.models.ayopulsa.PriceListPulsaGeneralModel;
 import com.antar.passenger.models.ayopulsa.PriceListDetailModel;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.ProjectUtils;
 import com.antar.passenger.utils.SettingPreference;
 import com.antar.passenger.utils.Utility;
@@ -69,6 +71,11 @@ public class TopUpPulsaActivity extends AppCompatActivity {
     TopUpType topUpType = TopUpType.pulsa;
     List<String> dataType = new ArrayList<>(Arrays.asList("Pulsa", "Paket Data"));
     Map<String, PriceListPulsaGeneralModel> priceListMap = new HashMap<>();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

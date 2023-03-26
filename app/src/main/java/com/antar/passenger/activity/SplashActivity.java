@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -25,11 +26,13 @@ import com.antar.passenger.constants.Constants;
 import com.antar.passenger.fragment.EnableLlocationFragment;
 import com.antar.passenger.models.User;
 import com.antar.passenger.utils.PhoneProviderHelper;
+import com.antar.passenger.utils.SharedPrefrence;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
 
 import pl.droidsonroids.gif.GifDrawable;
@@ -54,6 +57,20 @@ public class SplashActivity extends AppCompatActivity {
         final User user = BaseApp.getInstance(this).getLoginUser();
         sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         PhoneProviderHelper.addOperator(sharedPreferences);
+
+        if (!sharedPreferences.contains("My_Lang")){
+            Locale locale = new Locale("in");
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+            //save data to shared preference
+            SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+            editor.putString("My_Lang", "in");
+            editor.apply();
+        }
+
         new Handler().postDelayed(() -> {
 
             if (user != null) {

@@ -3,6 +3,7 @@ package com.antar.passenger.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -34,6 +35,7 @@ import com.antar.passenger.constants.Constants;
 import com.antar.passenger.json.EditprofileRequestJson;
 import com.antar.passenger.json.RegisterResponseJson;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
@@ -70,6 +72,11 @@ public class EditProfileActivity extends AppCompatActivity {
     String dateview, disableback, onsubmit;
     String country_iso_code = "en";
     private SimpleDateFormat dateFormatter, dateFormatterview;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

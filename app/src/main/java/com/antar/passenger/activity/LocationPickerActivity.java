@@ -3,6 +3,7 @@ package com.antar.passenger.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -32,6 +33,7 @@ import com.antar.passenger.json.GetNearRideCarResponseJson;
 import com.antar.passenger.models.AutoCompleteAdapter;
 import com.antar.passenger.models.DriverModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.BookService;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -114,6 +116,10 @@ public class LocationPickerActivity extends AppCompatActivity
 
     private int formToFill;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     private void fetchNearDriver() {
         User loginUser = BaseApp.getInstance(this).getLoginUser();

@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.antar.passenger.R;
 import com.antar.passenger.constants.BaseApp;
 import com.antar.passenger.json.FcmKeyResponseJson;
 import com.antar.passenger.json.FcmRequestJson;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
 import com.antar.passenger.utils.local_interface.OnBpjsItemClick;
@@ -64,6 +66,11 @@ public class TopUpBpjsActivity extends AppCompatActivity implements OnBpjsItemCl
     RecyclerView rcBpjsHistory;
     LinearLayout llHistory;
     List<MobilePulsaHealthBPJSResponseModel> mobileBPJSHistory = new ArrayList<>();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

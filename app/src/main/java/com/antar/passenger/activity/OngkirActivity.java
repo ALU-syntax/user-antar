@@ -30,6 +30,7 @@ import com.antar.passenger.models.cost.ItemCost;
 import com.antar.passenger.models.expedisi.ItemExpedisi;
 import com.antar.passenger.models.province.ItemProvince;
 import com.antar.passenger.models.province.Result;
+import com.antar.passenger.utils.LocaleHelper;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -62,6 +63,11 @@ public class OngkirActivity extends AppCompatActivity {
     private List<ItemExpedisi> listItemExpedisi = new ArrayList<ItemExpedisi>();
 
     private ProgressDialog progressDialog;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

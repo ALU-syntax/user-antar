@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -34,6 +35,7 @@ import com.antar.passenger.json.GetNearRideCarResponseJson;
 import com.antar.passenger.models.DriverModel;
 import com.antar.passenger.models.FiturModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.api.MapDirectionAPI;
 import com.antar.passenger.utils.api.ServiceGenerator;
@@ -217,6 +219,10 @@ public class SendActivity extends AppCompatActivity
         }
     };
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

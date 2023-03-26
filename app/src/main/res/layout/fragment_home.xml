@@ -32,6 +32,7 @@
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:paddingLeft="12dp"
         android:gravity="center"
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -138,7 +139,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="Poin"
+                            android:text="@string/home_poin"
                             android:textColor="@color/white"
                             android:textSize="14dp" />
 
@@ -184,7 +185,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
-                                android:text="Topup"
+                                android:text="@string/home_topup"
                                 android:textColor="@color/white"
                                 android:textSize="10dp" />
                         </RelativeLayout>
@@ -235,7 +236,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
-                                android:text="Promo"
+                                android:text="@string/home_promo"
                                 android:textColor="@color/white"
                                 android:textSize="10dp" />
                         </RelativeLayout>
@@ -260,7 +261,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
-                                android:text="Bantuan"
+                                android:text="@string/home_bantuan"
                                 android:textColor="@color/white"
                                 android:textSize="10dp" />
                         </RelativeLayout>
@@ -285,7 +286,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
-                                android:text="Detail"
+                                android:text="@string/home_detail"
                                 android:textColor="@color/white"
                                 android:textSize="10dp" />
                         </RelativeLayout>
@@ -429,7 +430,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Ulasan"
+                        android:text="@string/home_ulasan"
                         android:textColor="@color/black"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -506,7 +507,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Promo Minggu ini"
+                        android:text="@string/home_this_week_promo"
                         android:textColor="@color/black"
                         android:textSize="18dp" />
 
@@ -535,7 +536,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:gravity="center"
-                    android:text="Tidak ada merchant"
+                    android:text="@string/home_empty_merchant"
                     android:visibility="gone" />
 
                 <com.facebook.shimmer.ShimmerFrameLayout
@@ -657,7 +658,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Lapak Terdekat"
+                        android:text="@string/home_near_merchant"
                         android:textColor="@color/black"
                         android:textSize="18dp" />
 
@@ -677,7 +678,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:gravity="center"
-                    android:text="Tidak ada lapak"
+                    android:text="@string/home_empty_merchant"
                     android:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView

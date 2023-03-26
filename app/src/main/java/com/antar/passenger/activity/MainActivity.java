@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -29,6 +30,7 @@ import com.antar.passenger.fragment.ProfileFragment;
 import com.antar.passenger.json.GetFiturResponseJson;
 import com.antar.passenger.models.FiturModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.SessionWilayah;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
@@ -104,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static MainActivity getInstance() {
         return mainActivity;
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 
     @Override

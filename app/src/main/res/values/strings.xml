@@ -74,4 +74,24 @@
     <string name="mbox_note_insurance">Pilih besaran premi dan lingkup asuransi sesuai dengan nilai barang dan kebutuhan anda</string>
     <string name="main_pickLocation">Pilih lokasi</string>
     <string name="text_addressNotAvailable">Alamat tidak ada.</string>
+    <string name="menu">Menu</string>
+    <string name="login_notice">Pada saat memasukan nomor hp login atau register, jangan gunakan awalan angka 0 lagi karna sudah ada kode 62 otomatis</string>
+    <string name="home_poin">Poin</string>
+    <string name="home_topup">Top-up</string>
+    <string name="home_promo">Promo</string>
+    <string name="home_bantuan">Bantuan</string>
+    <string name="home_detail">Detail</string>
+    <string name="home_ulasan">Ulasan</string>
+    <string name="home_this_week_promo">Promo Minggu ini</string>
+    <string name="home_empty_merchant">Tidak ada merchant</string>
+    <string name="home_near_merchant">Lapak Terdekat</string>
+    <string name="profile_change_profile">Ubah Profil</string>
+    <string name="profile_change_password">Ganti Password</string>
+    <string name="profile_about_us">Tentang Kami</string>
+    <string name="profile_policy">Kebijakan</string>
+    <string name="profile_share">Bagikan</string>
+    <string name="profile_rate_app">Nilai Aplikasi</string>
+    <string name="profile_change_language">Ubah Bahasa</string>
+    <string name="profile_logout">Keluar</string>
+    <string name="recycle_nodata">Tidak Ada Data</string>
 </resources>

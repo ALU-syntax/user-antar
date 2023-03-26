@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.antar.passenger.R;
+import com.antar.passenger.utils.LocaleHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,6 +31,11 @@ public class MapsMerchantActivity extends AppCompatActivity implements OnMapRead
     String lat, lon, name;
     private GoogleMap mGoogleMap;
     private View marker_view;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @SuppressLint("InflateParams")
     @Override

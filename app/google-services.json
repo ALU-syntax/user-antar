@@ -8,6 +8,80 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:767374487207:android:3ad897d98f92ea6b18f582",
+        "android_client_info": {
+          "package_name": "com.antar.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767374487207-4rvnobb974dstuh86l8vkkjs92rfdglp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antar.driver",
+            "certificate_hash": "634488f2e6a11273f4396fcef74f24abf261eaea"
+          }
+        },
+        {
+          "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfuDg3q4Ksr71-OpCwR2QHKWR25bQjCiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767374487207:android:ceb79417d3fabfae18f582",
+        "android_client_info": {
+          "package_name": "com.antar.merchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767374487207-hgvno88cgoefqdf8nlmlqcngarnlr3ve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antar.merchant",
+            "certificate_hash": "634488f2e6a11273f4396fcef74f24abf261eaea"
+          }
+        },
+        {
+          "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfuDg3q4Ksr71-OpCwR2QHKWR25bQjCiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767374487207-qe3iesegiksf4nchvoa0mt61o6fibjnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:767374487207:android:7f6996d7eb32dbfd18f582",
         "android_client_info": {
           "package_name": "com.antar.passenger"

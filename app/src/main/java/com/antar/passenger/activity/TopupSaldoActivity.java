@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.antar.passenger.utils.LocaleHelper;
 import com.duitku.sdk.DuitkuCallback.DuitkuCallbackTransaction;
 import com.duitku.sdk.DuitkuClient;
 import com.duitku.sdk.DuitkuUtility.BaseKitDuitku;
@@ -56,6 +58,11 @@ public class TopupSaldoActivity extends DuitkuClient {
     DuitkuKit duitku ;
     DuitkuCallbackTransaction callbackKit ;
     User loginUser;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

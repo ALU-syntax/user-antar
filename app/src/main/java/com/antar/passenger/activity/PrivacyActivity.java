@@ -1,5 +1,6 @@
 package com.antar.passenger.activity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import com.antar.passenger.R;
 import com.antar.passenger.json.PrivacyRequestJson;
 import com.antar.passenger.json.PrivacyResponseJson;
 import com.antar.passenger.models.SettingsModel;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.NetworkUtils;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
@@ -29,6 +31,10 @@ public class PrivacyActivity extends AppCompatActivity {
     WebView webView;
     ImageView backbtn;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

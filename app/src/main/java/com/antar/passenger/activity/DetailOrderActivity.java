@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -50,6 +51,7 @@ import com.antar.passenger.models.ItemPesanan;
 import com.antar.passenger.models.PesananMerchant;
 import com.antar.passenger.models.TransaksiModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.SessionWilayah;
 import com.antar.passenger.utils.SettingPreference;
 import com.antar.passenger.utils.Utility;
@@ -124,6 +126,11 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
     private String saldoWallet, checkedpaywallet, checkedpaycash, idresto, alamatresto, namamerchant, back;
     private int total_harga_non_merchant =0;
     private SessionWilayah sessionWilayah;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     private okhttp3.Callback updateRouteCallback = new okhttp3.Callback() {
         @Override

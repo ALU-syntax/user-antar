@@ -7,6 +7,7 @@ import androidx.multidex.MultiDex;
 
 import com.antar.passenger.models.FirebaseToken;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -53,7 +54,7 @@ public class BaseApp extends Application {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
+        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
         MultiDex.install(this);
     }
 

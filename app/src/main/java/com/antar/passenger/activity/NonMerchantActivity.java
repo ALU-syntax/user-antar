@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import com.antar.passenger.models.DriverModel;
 import com.antar.passenger.models.ItemPesanan;
 import com.antar.passenger.models.PesananMerchant;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.Log;
 import com.antar.passenger.utils.api.MapDirectionAPI;
 import com.antar.passenger.utils.api.ServiceGenerator;
@@ -120,6 +122,10 @@ public class NonMerchantActivity extends AppCompatActivity implements MartInterf
         }
     };
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

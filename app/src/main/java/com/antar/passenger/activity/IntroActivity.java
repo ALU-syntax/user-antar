@@ -19,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.antar.passenger.R;
 import com.antar.passenger.utils.AppIntroPagerAdapter;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.ProjectUtils;
 import com.antar.passenger.utils.SharedPrefrence;
 
@@ -36,9 +37,12 @@ public class IntroActivity extends AppCompatActivity implements ViewPager.OnPage
     private ImageView[] dots;
     private Context mContext;
 
+    String currentLanguage = "km-rKH", currentLang;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentLanguage = getIntent().getStringExtra(currentLang);
         ProjectUtils.Fullscreen(IntroActivity.this);
         setContentView(R.layout.activity_intro);
         mContext = IntroActivity.this;
@@ -103,6 +107,11 @@ public class IntroActivity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 
     @Override

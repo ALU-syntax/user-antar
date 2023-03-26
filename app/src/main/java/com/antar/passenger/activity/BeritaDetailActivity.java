@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.antar.passenger.json.BeritaDetailResponseJson;
 import com.antar.passenger.models.BeritaModel;
 import com.antar.passenger.models.User;
 import com.antar.passenger.utils.DatabaseHelper;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
@@ -44,6 +46,11 @@ public class BeritaDetailActivity extends AppCompatActivity {
     ImageView backButton, images, favourite;
     RelativeLayout rlprogress;
     private DatabaseHelper databaseHelper;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

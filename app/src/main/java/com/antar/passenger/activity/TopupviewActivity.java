@@ -1,5 +1,6 @@
 package com.antar.passenger.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import com.antar.passenger.json.WithdrawRequestJson;
 import com.antar.passenger.json.fcm.FCMMessage;
 import com.antar.passenger.models.Notif;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.SettingPreference;
 import com.antar.passenger.utils.Utility;
 import com.antar.passenger.utils.api.FCMHelper;
@@ -53,6 +55,11 @@ public class TopupviewActivity extends AppCompatActivity {
     RecyclerView petunjuk;
     LinearLayout llpentunjuk;
     BankItem bankItem;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

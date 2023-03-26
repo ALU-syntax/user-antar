@@ -30,7 +30,7 @@
                 android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
-                android:src="@drawable/mojeklogo" />
+                android:src="@drawable/antar_logo" />
 
         </LinearLayout>
 

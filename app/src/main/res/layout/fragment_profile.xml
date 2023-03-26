@@ -147,7 +147,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Ubah Profil"
+                            android:text="@string/profile_change_profile"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -188,7 +188,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Ganti Password"
+                            android:text="@string/profile_change_password"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -215,7 +215,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/antar_logo" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -229,7 +229,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Tentang Kami"
+                            android:text="@string/profile_about_us"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -269,7 +269,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Kebijakan"
+                            android:text="@string/profile_policy"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -309,7 +309,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Bagikan"
+                            android:text="@string/profile_share"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -349,7 +349,47 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Nilai Aplikasi"
+                            android:text="@string/profile_rate_app"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:id="@+id/llchangelangaunge"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_translate" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <customfonts.TextViewSFProDisplayMedium
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/profile_change_language"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 
@@ -391,7 +431,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:gravity="center_vertical"
-                            android:text="Keluar"
+                            android:text="@string/profile_logout"
                             android:textColor="@color/black"
                             android:textSize="15dp" />
 

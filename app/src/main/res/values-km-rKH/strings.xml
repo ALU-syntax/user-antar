@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Antar</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCiWtYdtXeZALg4FM9bP2dysxDaptNpGr8</string>
+    <string name="loginplaystore">821651748354835</string>
+    <string name="introtext1">បញ្ជី!</string>
+    <string name="introdesc1">Antar ការដឹកជញ្ជូនតាមអ៊ីនធឺណិតនៅកម្ពុជា</string>
+    <string name="introtext2">បញ្ជាទិញភ្លាមៗ</string>
+    <string name="introdesc2">អ្នកអាចបញ្ជាទិញជម្រើសនៃសេវាកម្មរបស់យើង។</string>
+    <string name="introtext3">ចែក​ចាយ​យ៉ាង​ឆាប់​រហ័ស</string>
+    <string name="introdesc3">ជាមួយអ្នកបើកបរដែលមានបទពិសោធន៍!</string>
+
+    <string name="exit">តើអ្នកប្រាកដថាចង់ចាកចេញពីកម្មវិធីមែនទេ?</string>
+    <string name="yes">បាទ!</string>
+    <string name="no">ទេ</string>
+
+    <string name="email">អ៊ីមែល</string>
+    <string name="verifydesc">យើងផ្ញើលេខកូដផ្ទៀងផ្ទាត់លេខ</string>
+    <string name="norecieve">មិនបានទទួលលេខកូដ?</string>
+    <string name="resend">បញ្ជូនបន្ត</string>
+    <string name="confirm">ការបញ្ជាក់</string>
+    <string name="privacy">ដោយការបញ្ចូលអ្នកយល់ព្រម  <![CDATA[<b><font color=#6DC0FF>លក្ខខណ្ឌ និងគោលនយោបាយ</font></b>]]></string>
+    <string name="text_with_bullet">\u2022</string>
+    <string name="lupa">ភ្លេចលេខសម្ងាត់?</string>
+    <string name="button_signIn">ចូល</string>
+    <string name="button_signUp">បញ្ជី</string>
+    <string name="button_dontHaveAccount">មិនទាន់មានគណនីមែនទេ?</string>
+    <string name="wrongnumber">ទម្រង់លេខមិនត្រឹមត្រូវ</string>
+    <string name="phoneemailwrong">លេខ​សម្ងាត់ ឬ​លេខ​ទូរសព្ទ​ខុស!</string>
+    <string name="phonepass">លេខទូរសព្ទ និងលេខសម្ងាត់មិនអាចទទេបានទេ!</string>
+    <string name="phoneempty">លេខទូរស័ព្ទមិនអាចទទេបានទេ!</string>
+    <string name="passempty">ពាក្យសម្ងាត់មិនអាចទទេបានទេ!</string>
+    <string name="emailempty">អ៊ីមែលមិនអាចទទេបានទេ!</string>
+
+    <string name="hint_name">ឈ្មោះ</string>
+    <string name="hint_email">អ៊ីមែល</string>
+    <string name="hint_phone">ឧទាហរណ៍ : 85370xxxxxx</string>
+    <string name="hint_birthday">ថ្ងៃខែ​ឆ្នាំ​កំណើត</string>
+    <string name="hint_password">ពាក្យសម្ងាត់</string>
+
+    <string name="menu_home">ទំព័រដើម</string>
+    <string name="menu_chat">ជជែក</string>
+    <string name="menu_order">បញ្ជាទិញ</string>
+    <string name="menu_favourite">សំណព្វ</string>
+    <string name="menu_profile">ប្រវត្តិរូប</string>
+    <string name="text_cancel">បានលុបចោល</string>
+    <string name="getstarted">ចាប់ផ្តើម</string>
+
+    <string name="ride_location">ទីតាំង</string>
+    <string name="ride_destination">កម្មវត្ថុ</string>
+
+    <string name="ride_note">កំណត់ចំណាំ</string>
+
+    <string name="ride_setPickUp">លើកឡើង</string>
+    <string name="ride_setDestination">កម្មវត្ថុ</string>
+    <string name="text_order">បញ្ជាទិញ</string>
+    <string name="waiting_desc">បច្ចុប្បន្នយើងកំពុងស្វែងរកអ្នកបើកបរដែលនៅជិតបំផុត។</string>
+    <string name="waiting_pleaseWait">សូមរង់ចាំ....</string>
+    <string name="text_noInternet">គ្មានការចូលប្រើអ៊ីនធឺណិត</string>
+
+    <string name="notification_cancel">ការបញ្ជាទិញត្រូវបានលុបចោលដោយជោគជ័យ</string>
+    <string name="notification_start">ទៅទីតាំងគោលដៅ</string>
+    <string name="notification_accept">រកឃើញអ្នកបើកបរហើយ!</string>
+    <string name="notification_finish">សូមអរគុណចំពោះការប្រើប្រាស់សេវាកម្មរបស់យើង។</string>
+    <string name="input_no">នៅពេលចូល ឬចុះឈ្មោះ សូមកុំបន្ថែមលេខ 0 ផ្សេងទៀតនៅពេលបញ្ចូលលេខទូរស័ព្ទ</string>
+    <string name="mart_order">សារ</string>
+    <string name="mart_product">ទំនិញ</string>
+    <string name="mart_plus">+</string>
+    <string name="mart_minus">-</string>
+    <string name="mart_details">ព័ត៌មានលម្អិត</string>
+    <string name="mart_to">កម្មវត្ថុ</string>
+    <string name="mart_estimatedBiaya">ការចំណាយប៉ាន់ស្មាន</string>
+    <string name="mart_useLocation">កំណត់ទីតាំងនេះ។</string>
+    <string name="mart_searchLocation">ស្វែងរកទីតាំង…</string>\
+    <string name="mbox_note_insurance">ជ្រើសរើស​ចំនួន​បុព្វលាភ និង​ការ​ធានា​រ៉ាប់រង​តាម​តម្លៃ​ទំនិញ និង​តម្រូវការ​របស់​អ្នក។</string>
+    <string name="main_pickLocation">ជ្រើសរើសទីតាំង</string>
+    <string name="text_addressNotAvailable">អាសយដ្ឋានមិនមានទេ។.</string>
+    <string name="menu">ម៉ឺនុយ</string>
+    <string name="login_notice">ពពេល​បញ្ចូល​លេខ​ទូរសព្ទ​ចូល ឬ​ចុះ​ឈ្មោះ កុំ​ប្រើ​បុព្វបទ​លេខ 0 ទៀត​ទេ ព្រោះ​មាន​លេខ​កូដ​ប្រទេស​ស្វ័យ​ប្រវត្តិ​រួច​ហើយ</string>
+    <string name="home_poin">ចំណុច</string>
+    <string name="home_topup">បញ្ចូល​លុយ</string>
+    <string name="home_promo">ប្រូម៉ូសិន</string>
+    <string name="home_bantuan">ជំនួយ</string>
+    <string name="home_detail">ព័ត៌មានលម្អិត</string>
+    <string name="home_ulasan">ពិនិត្យឡើងវិញ</string>
+    <string name="home_this_week_promo">ប្រូម៉ូសិនសប្តាហ៍នេះ។</string>
+    <string name="home_empty_merchant">មិនមានឈ្មួញទេ។</string>
+    <string name="home_near_merchant">ឈ្មួញដែលនៅជិតបំផុត។</string>
+    <string name="profile_change_profile">ផ្លាស់ប្តូរប្រវត្តិរូប</string>
+    <string name="profile_change_password">ផ្លាស់ប្តូរពាក្យសម្ងាត់</string>
+    <string name="profile_about_us">អំពី​ពួក​យើង</string>
+    <string name="profile_policy">គោលនយោបាយ</string>
+    <string name="profile_share">ចែករំលែក</string>
+    <string name="profile_rate_app">តម្លៃកម្មវិធី</string>
+    <string name="profile_change_language">ប្ដូរ​ភាសា</string>
+    <string name="profile_logout">ចេញពីគណនី</string>
+    <string name="recycle_nodata">គ្មាន​ទិន្នន័យ</string>
+</resources>

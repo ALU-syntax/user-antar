@@ -2,6 +2,7 @@ package com.antar.passenger.fragment;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
@@ -10,7 +11,9 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,11 +44,14 @@ import com.antar.passenger.constants.Constants;
 import com.antar.passenger.models.User;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.SettingPreference;
+import com.antar.passenger.utils.SharedPrefrence;
 
+import java.util.Locale;
 import java.util.Objects;
 
 import io.realm.Realm;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 
@@ -55,8 +61,12 @@ public class ProfileFragment extends Fragment {
     private TextView nama, userid, email, referalcode, txt_salin_refcode;
     private SettingPreference sp;
 
+    public static final String TAG = "bottom_sheet";
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        loadLocale();
+
         View getView = inflater.inflate(R.layout.fragment_profile, container, false);
         context = getContext();
         foto = getView.findViewById(R.id.userphoto);
@@ -72,6 +82,7 @@ public class ProfileFragment extends Fragment {
         LinearLayout editprofile = getView.findViewById(R.id.lleditprofile);
         LinearLayout logout = getView.findViewById(R.id.lllogout);
         LinearLayout llpassword = getView.findViewById(R.id.llpassword);
+        LinearLayout llChangeLanguange = getView.findViewById(R.id.llchangelangaunge);
         sp = new SettingPreference(context);
 
 
@@ -125,6 +136,14 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        llChangeLanguange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+                bottomSheetFragment.show(requireActivity().getSupportFragmentManager(), TAG);
+            }
+        });
+
         editprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,6 +181,63 @@ public class ProfileFragment extends Fragment {
 
         return getView;
     }
+
+//    private void showChangeLanguageDialog() {
+//        final String[] listLanguage = { "English", "ព្រះរាជាណាចក្រកម្ពុជា", "Bahasa Indonesia"};
+//        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this.context);
+//        mBuilder.setTitle("Choose Languange");
+//        mBuilder.setSingleChoiceItems(listLanguage, -1, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                if( which == 0){
+//                    //english
+//                    setLocale("en");
+//                    Objects.requireNonNull(getActivity()).recreate();
+//                }
+//                else if( which == 1){
+//                    //kamboja
+//                    setLocale("km-rKH");
+//                    Objects.requireNonNull(getActivity()).recreate();
+//                }
+//                else if( which == 2){
+//                    //indo
+//                    setLocale("in");
+//                    Objects.requireNonNull(getActivity()).recreate();
+//                }
+//
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        AlertDialog mDialog = mBuilder.create();
+//        mDialog.show();
+//    }
+
+//    private void setLocale(String lang) {
+//        Locale locale = new Locale(lang);
+//        Locale.setDefault(locale);
+//        Configuration config = new Configuration();
+//        config.locale = locale;
+//        Objects.requireNonNull(getContext()).getResources().updateConfiguration(config, getContext().getResources().getDisplayMetrics());
+//
+//        //save data to shared preference
+////        SharedPrefrence.prefsEditor = context.getSharedPreferences("Settings" , Context.MODE_PRIVATE).edit();
+//        SharedPreferences.Editor editor =  context.getSharedPreferences("Settings", Context.MODE_PRIVATE).edit();
+//        editor.putString("My_Lang", lang);
+//        editor.apply();
+//    }
+
+//    public void loadLocale(){
+//        context = getActivity();
+////        SharedPreferences prefs = requireContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+////        SharedPreferences prefs = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+////        SharedPreferences prefs = getActivity().getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+////        SharedPreferences prefs = getContext().getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+////        SharedPreferences prefs = requireActivity().getSharedPreferences("Settings", MODE_PRIVATE);
+//        SharedPreferences prefs = context.getSharedPreferences("Settings", MODE_PRIVATE);
+//        String language = prefs.getString("My_Lang", "");
+//        setLocale(language);
+//    }
 
     private void clickDone() {
         new AlertDialog.Builder(context, R.style.DialogStyle)

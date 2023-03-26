@@ -1,5 +1,6 @@
 package com.antar.passenger.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.antar.passenger.json.ChangePassRequestJson;
 import com.antar.passenger.json.LoginResponseJson;
 import com.antar.passenger.models.FirebaseToken;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
 
@@ -41,6 +43,10 @@ public class ChangepassActivity extends AppCompatActivity {
     RelativeLayout rlnotif, rlprogress;
     String disableback;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

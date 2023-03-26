@@ -265,7 +265,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Menu"
+                android:text="@string/menu"
                 android:textSize="18dp" />
 
             <LinearLayout

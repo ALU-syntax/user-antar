@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.antar.passenger.models.User;
 import com.antar.passenger.models.ayopulsa.PriceListDataModel;
 import com.antar.passenger.models.ayopulsa.PriceListDetailModel;
 import com.antar.passenger.models.ayopulsa.TopUpStatusModel;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.ProjectUtils;
 import com.antar.passenger.utils.SettingPreference;
 import com.antar.passenger.utils.Utility;
@@ -73,6 +75,11 @@ public class TopUpPlnActivity extends AppCompatActivity implements TopUpPlnHisto
     LinearLayout llListPastTopUp;
     List<TopUpPlnHistoryModel> listOfPreviousPLNTopUpRequest= new ArrayList<>();
     List<PriceListDetailModel> dataList = new ArrayList<>();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

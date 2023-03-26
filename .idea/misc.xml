@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_all_berita.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_detail_merchant.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_detail_order.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_editprofile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_fitur.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_terim.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_withdraw.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_recycle.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/item_fitur.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/shimercategoryfood.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/shimerlist.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/shimerlistdetail.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/shimerpromo.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/menu/navigation.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

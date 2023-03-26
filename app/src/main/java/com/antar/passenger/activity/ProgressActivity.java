@@ -55,6 +55,7 @@ import com.antar.passenger.models.FiturModel;
 import com.antar.passenger.models.LokasiDriverModel;
 import com.antar.passenger.models.TransaksiModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.NetworkManager;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.Utility;
@@ -242,6 +243,11 @@ public class ProgressActivity extends AppCompatActivity
             orderHandler(Objects.requireNonNull(orderBundle).getInt("code"));
         }
     };
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onDestroy() {

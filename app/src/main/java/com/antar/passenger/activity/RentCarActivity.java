@@ -46,6 +46,7 @@ import com.antar.passenger.models.DriverModel;
 import com.antar.passenger.models.FiturModel;
 import com.antar.passenger.models.TransaksiModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.Utility;
 import com.antar.passenger.utils.api.FCMHelper;
@@ -196,6 +197,11 @@ public class RentCarActivity extends AppCompatActivity
     private String checkedpaywallet;
     private boolean isMapReady = false;
     private String keyss;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @SuppressLint("SetTextI18n")
     @Override

@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -56,6 +57,7 @@ import com.antar.passenger.json.fcm.FCMMessage;
 import com.antar.passenger.models.Chat;
 import com.antar.passenger.models.ChatModels;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.SendAudio;
 import com.antar.passenger.utils.api.FCMHelper;
@@ -143,6 +145,11 @@ public class ChatActivity extends AppCompatActivity {
     private DatabaseReference sendTypingIndication;
     private List<ChatModels> mChats = new ArrayList<>();
     private String keyss;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

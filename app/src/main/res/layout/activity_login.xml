@@ -236,8 +236,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:gravity="center"
-                                android:text="Pada saat memasukan nomor hp login atau register, jangan gunakan awalan angka 0 lagi karna sudah ada kode 62 otomatis"
                                 android:lineSpacingExtra="5dp"
+                                android:text="@string/login_notice"
                                 android:textColor="@color/black"
                                 android:textSize="12dp" />
                         </RelativeLayout>
@@ -312,7 +312,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:elevation="10dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/antar_logo" />
         </LinearLayout>
     </RelativeLayout>
 

@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -31,6 +32,7 @@ import com.antar.passenger.json.SearchMerchantbyCatRequestJson;
 import com.antar.passenger.models.CatMerchantModel;
 import com.antar.passenger.models.MerchantNearModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.api.MapDirectionAPI;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
@@ -65,6 +67,11 @@ public class AllMerchantActivity extends AppCompatActivity {
     LinearLayout llmerchantnear, shimlistnear, shimlistcatnear;
     RelativeLayout nodatanear;
     int fiturId;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

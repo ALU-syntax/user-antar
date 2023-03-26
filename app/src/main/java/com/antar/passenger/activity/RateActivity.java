@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.antar.passenger.json.RateRequestJson;
 import com.antar.passenger.json.RateResponseJson;
 import com.antar.passenger.models.DriverModel;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.BookService;
@@ -53,6 +55,11 @@ public class RateActivity extends AppCompatActivity {
     ShimmerFrameLayout shimmername;
     @BindView(R.id.ratingView)
     RatingView ratingview;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

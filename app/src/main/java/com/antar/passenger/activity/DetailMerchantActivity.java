@@ -1,8 +1,11 @@
 package com.antar.passenger.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.location.Location;
 import android.os.Build;
@@ -22,6 +25,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +41,7 @@ import com.antar.passenger.models.CatItemModel;
 import com.antar.passenger.models.ItemModel;
 import com.antar.passenger.models.PesananMerchant;
 import com.antar.passenger.models.User;
+import com.antar.passenger.utils.LocaleHelper;
 import com.antar.passenger.utils.PicassoTrustAll;
 import com.antar.passenger.utils.Utility;
 import com.antar.passenger.utils.api.MapDirectionAPI;
@@ -96,9 +101,17 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
     private List<ItemModel> itemRealmResults;
     private Realm realm;
 
+    String currentLanguage = "en", currentLang;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentLanguage = getIntent().getStringExtra(currentLang);
         setContentView(R.layout.activity_detail_merchant);
         realm = Realm.getDefaultInstance();
 
@@ -154,6 +167,16 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
 
 
         FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mFusedLocation.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
@@ -389,6 +412,16 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
                                 nodatanear.setVisibility(View.GONE);
                                 shimmerchantnear.startShimmerAnimation();
                                 FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(DetailMerchantActivity.this);
+                                if (ActivityCompat.checkSelfPermission(DetailMerchantActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(DetailMerchantActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                    // TODO: Consider calling
+                                    //    ActivityCompat#requestPermissions
+                                    // here to request the missing permissions, and then overriding
+                                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                    //                                          int[] grantResults)
+                                    // to handle the case where the user grants the permission. See the documentation
+                                    // for ActivityCompat#requestPermissions for more details.
+                                    return;
+                                }
                                 mFusedLocation.getLastLocation().addOnSuccessListener(DetailMerchantActivity.this, new OnSuccessListener<Location>() {
                                     @Override
                                     public void onSuccess(Location location) {
