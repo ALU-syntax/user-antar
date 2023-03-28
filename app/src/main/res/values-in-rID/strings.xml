@@ -95,5 +95,6 @@
     <string name="profile_change_language">Ubah Bahasa</string>
     <string name="profile_logout">Keluar</string>
     <string name="recycle_nodata">Tidak Ada Data</string>
-    <string name="send_to">Dikirim Ke</string>
+    <string name="send_to">Dikirim Ke </string>
+    <string name="choose_language">Pilih Bahasa</string>
 </resources>

@@ -174,6 +174,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
             Intent refresh = new Intent(getContext(), SplashActivity.class);
             refresh.putExtra(currentLang, localeName);
             startActivity(refresh);
+            requireActivity().finish();
         } else {
             //Toast.makeText(getActivity(), "Language already selected!", Toast.LENGTH_SHORT).show();
         }

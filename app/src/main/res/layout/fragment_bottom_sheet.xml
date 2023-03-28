@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:text="Choose Language"
+        android:text="@string/choose_language"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="17dp"/>
 
