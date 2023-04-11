@@ -48,6 +48,8 @@ import com.antar.passenger.json.TopUpBaseResponse;
 import com.antar.passenger.json.TopUpRequestResponse;
 import com.antar.passenger.json.TopupRequestJson;
 import com.antar.passenger.json.TopupResponseJson;
+import com.antar.passenger.json.UserVoucherRequestJson;
+import com.antar.passenger.json.UserVoucherResponseJson;
 import com.antar.passenger.json.VoucherResponseJson;
 import com.antar.passenger.json.WalletRequestJson;
 import com.antar.passenger.json.WalletResponseJson;
@@ -195,5 +197,8 @@ public interface UserService {
 
     @GET("pelanggan/voucherpromo")
     Call<VoucherResponseJson> getVoucherPromo();
+
+    @POST("pelanggan/uservoucher")
+    Call<UserVoucherResponseJson> userVoucher(@Body UserVoucherRequestJson param);
 
 }

@@ -90,7 +90,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
     private String keyss;
     public static final String FITUR_KEY = "FiturKey";
     private final int DESTINATION_ID = 1;
-    TextView location, orderprice, deliveryfee, diskon, total, diskontext, topuptext, textnotif, saldotext;
+    TextView location, orderprice, deliveryfee, diskon, total, diskontext, topuptext, textnotif, saldotext
+            ,tvVoucher;
     Button order;
     RecyclerView rvmerchantnear;
     LinearLayout llcheckedcash, llcheckedwallet, llbtn;
@@ -108,7 +109,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
     RelativeLayout rlnotif;
     EditText promokode;
     String home, layanan, keterangan, icon;
-    Button btnpromo;
+    Button btnpromo,  btnSelectVoucher;
     private List<MartItem> martItemList;
     private int non_merchant;
     double km;
@@ -217,6 +218,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         btnpromo = findViewById(R.id.btnpromo);
         back = "0";
         llbtn = findViewById(R.id.llbtn);
+        tvVoucher = findViewById(R.id.tv_voucher);
+        btnSelectVoucher = findViewById(R.id.btn_select_voucher);
 
         driverAvailable = new ArrayList<>();
         fitur = 0;

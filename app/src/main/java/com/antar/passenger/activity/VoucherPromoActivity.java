@@ -85,26 +85,5 @@ public class VoucherPromoActivity extends AppCompatActivity {
 
             }
         });
-
-//        service.listpromocode(param).enqueue(new Callback<PromoResponseJson>() {
-//            @Override
-//            public void onResponse(@NonNull Call<PromoResponseJson> call, @NonNull Response<PromoResponseJson> response) {
-//                if (response.isSuccessful()) {
-//                    shimmertutup();
-//                    if (Objects.requireNonNull(response.body()).getData().isEmpty()) {
-//                        rlnodata.setVisibility(View.VISIBLE);
-//                    } else {
-//                        itemVoucher = new ItemVoucher(VoucherPromoActivity.this, response.body().getData(), R.layout.item_promo);
-//                        rvListVoucher.setAdapter(itemVoucher);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull retrofit2.Call<PromoResponseJson> call, @NonNull Throwable t) {
-//
-//            }
-//        });
-
     }
 }
