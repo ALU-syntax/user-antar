@@ -96,4 +96,6 @@
     <string name="recycle_nodata">Tidak Ada Data</string>
     <string name="send_to">Dikirim Ke</string>
     <string name="choose_language">Choose Language</string>
+    <string name="menu_voucher">Voucher</string>
+    <string name="currency">Rp</string>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_detail_voucher"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_voucher_poster"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/flag_id"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_voucher_poster"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textSize="16sp"
+            android:textColor="@color/red_900"
+            android:textStyle=""
+            android:text="@string/currency"/>
+
+        <TextView
+            android:id="@+id/tv_expired"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="tanggal"/>
+
+        <TextView
+            android:id="@+id/tv_voucher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@tools:sample/first_names"
+            android:layout_below="@id/iv_voucher_poster"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

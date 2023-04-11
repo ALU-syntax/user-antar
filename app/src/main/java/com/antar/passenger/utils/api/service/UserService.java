@@ -48,11 +48,13 @@ import com.antar.passenger.json.TopUpBaseResponse;
 import com.antar.passenger.json.TopUpRequestResponse;
 import com.antar.passenger.json.TopupRequestJson;
 import com.antar.passenger.json.TopupResponseJson;
+import com.antar.passenger.json.VoucherResponseJson;
 import com.antar.passenger.json.WalletRequestJson;
 import com.antar.passenger.json.WalletResponseJson;
 import com.antar.passenger.json.WithdrawRequestJson;
 import com.antar.passenger.json.MobileTopUpResponseModel;
 import com.antar.passenger.json.XenditPaymentRequestJson;
+import com.antar.passenger.models.VoucherModel;
 import com.antar.passenger.models.ayopulsa.PriceListDataModel;
 import com.antar.passenger.models.ayopulsa.TopUpStatusModel;
 
@@ -190,5 +192,8 @@ public interface UserService {
 
     @GET
     Call<TopUpStatusModel> checkAyoPesanStatusPayment(@Url String url, @Header("Authorization") String header);
+
+    @GET("pelanggan/voucherpromo")
+    Call<VoucherResponseJson> getVoucherPromo();
 
 }

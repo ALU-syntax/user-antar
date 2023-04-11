@@ -97,4 +97,6 @@
     <string name="recycle_nodata">គ្មាន​ទិន្នន័យ</string>
     <string name="send_to">បានផ្ញើទៅ </string>
     <string name="choose_language">ជ្រើសរើសភាសា</string>
+    <string name="menu_voucher">ប័ណ្ណទូទាត់</string>
+    <string name="currency">៛</string>
 </resources>

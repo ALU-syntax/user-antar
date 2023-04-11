@@ -33,6 +33,7 @@ import com.antar.passenger.activity.PilihWilayahActivity;
 import com.antar.passenger.activity.PpobActivity;
 import com.antar.passenger.activity.PromoActivity;
 import com.antar.passenger.activity.TopupSaldoActivity;
+import com.antar.passenger.activity.VoucherPromoActivity;
 import com.antar.passenger.activity.WaActivity;
 import com.antar.passenger.activity.WalletActivity;
 import com.antar.passenger.constants.BaseApp;
@@ -165,6 +166,7 @@ public class HomeFragment extends Fragment {
         layoutwilayah = getView.findViewById(R.id.layoutwilayah);
         txtwilayahkerja = getView.findViewById(R.id.txtwilayahkerja);
         fiturlist = new ArrayList<>();
+        RelativeLayout voucherPromo = getView.findViewById(R.id.voucher_promo);
 
         mShimmerCat = getView.findViewById(R.id.shimmercat);
         shimerPromo = getView.findViewById(R.id.shimmepromo);
@@ -222,6 +224,15 @@ public class HomeFragment extends Fragment {
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
+            }
+        });
+
+        voucherPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, VoucherPromoActivity.class);
+//                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
 

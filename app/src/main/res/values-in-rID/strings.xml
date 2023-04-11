@@ -39,9 +39,9 @@
     <string name="hint_password">Password</string>
 
     <string name="menu_home">Beranda</string>
-    <string name="menu_chat">chat</string>
+    <string name="menu_chat">Chat</string>
     <string name="menu_order">Order</string>
-    <string name="menu_favourite">Favourit</string>
+    <string name="menu_favourite">Favorit</string>
     <string name="menu_profile">Profil</string>
     <string name="text_cancel">Batal</string>
     <string name="getstarted">Mulai</string>
@@ -97,4 +97,6 @@
     <string name="recycle_nodata">Tidak Ada Data</string>
     <string name="send_to">Dikirim Ke </string>
     <string name="choose_language">Pilih Bahasa</string>
+    <string name="menu_voucher">Voucher</string>
+    <string name="currency">Rp</string>
 </resources>

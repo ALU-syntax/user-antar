@@ -242,6 +242,31 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/voucher_promo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/ic_voucher_promo"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_voucher_promo" />
+
+                            <customfonts.TextViewSFProDisplayMedium
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/ic_voucher_promo"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="@string/menu_voucher"
+                                android:textColor="@color/white"
+                                android:textSize="10dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@+id/fitur"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
