@@ -99,4 +99,10 @@
     <string name="choose_language">ជ្រើសរើសភាសា</string>
     <string name="menu_voucher">ប័ណ្ណទូទាត់</string>
     <string name="currency">៛</string>
+    <string name="voucher_potongan">ប័ណ្ណបញ្ចុះតម្លៃ: </string>
+    <string name="voucher_jumlah">ចំនួនប័ណ្ណ: </string>
+    <string name="voucher_type">ប្រភេទប័ណ្ណ: </string>
+    <string name="voucher_minimum">ប្រតិបត្តិការអប្បបរមា: </string>
+    <string name="voucher_expired">ផុតកំណត់: </string>
+    <string name="voucher_price">តម្លៃប័ណ្ណ: </string>
 </resources>

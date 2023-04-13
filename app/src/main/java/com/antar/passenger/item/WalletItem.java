@@ -52,7 +52,8 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
 
         if (singleItem.getType().equals("withdraw")) {
             holder.text.setText(singleItem.getType());
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
 
             switch (singleItem.getStatus()) {
                 case "1":
@@ -77,7 +78,8 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
 
         } else if (singleItem.getType().equals("Order-")) {
             holder.text.setText("Order " + singleItem.getBank());
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
 
             switch (singleItem.getStatus()) {
                 case "1":
@@ -102,14 +104,16 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
 
         } else if (singleItem.getType().equals("topup") && singleItem.getStatus().equals("1")) {
             holder.text.setText(singleItem.getType() + " " + singleItem.getBank());
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
             holder.text.setTextColor(mContext.getResources().getColor(R.color.green));
             holder.nominal.setTextColor(mContext.getResources().getColor(R.color.green));
             holder.background.setColorFilter(mContext.getResources().getColor(R.color.green));
             holder.keterangan.setText("Dana Masuk");
 
         } else if (singleItem.getType().equals("topup") && singleItem.getStatus().equals("2")) {
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
             holder.text.setText(singleItem.getType() + " " + singleItem.getBank());
             holder.text.setTextColor(mContext.getResources().getColor(R.color.gray));
             holder.nominal.setTextColor(mContext.getResources().getColor(R.color.gray));
@@ -117,7 +121,8 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
             holder.keterangan.setText("Dibatalkan");
 
         } else if (singleItem.getType().equals("topup") && singleItem.getStatus().equals("0")) {
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
             holder.text.setText(singleItem.getType() + " " + singleItem.getBank());
             holder.background.setColorFilter(mContext.getResources().getColor(R.color.yellow));
             holder.text.setTextColor(mContext.getResources().getColor(R.color.yellow));
@@ -126,7 +131,8 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
 
         } else if (singleItem.getType().equals("Order+")) {
             holder.text.setText("Order " + singleItem.getBank());
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
             holder.text.setTextColor(mContext.getResources().getColor(R.color.green));
             holder.nominal.setTextColor(mContext.getResources().getColor(R.color.green));
             holder.background.setColorFilter(mContext.getResources().getColor(R.color.green));
@@ -139,7 +145,8 @@ public class WalletItem extends RecyclerView.Adapter<WalletItem.ItemRowHolder> {
             holder.text.setText(singleItem.getType() + " " + singleItem.getBank());
             holder.text.setTextColor(mContext.getResources().getColor(R.color.yellow));
             holder.nominal.setTextColor(mContext.getResources().getColor(R.color.yellow));
-            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+//            Utility.currencyTXT(holder.nominal, singleItem.getJumlah(), mContext);
+            Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getJumlah());
 
             holder.keterangan.setText("Pending");
 

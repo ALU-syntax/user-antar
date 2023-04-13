@@ -90,7 +90,8 @@ public class WithdrawActivity extends AppCompatActivity {
             images.setScaleType(ImageView.ScaleType.FIT_XY);
             nominal = intent.getStringExtra("nominal");
 
-            Utility.currencyTXT(amount, Objects.requireNonNull(nominal), WithdrawActivity.this);
+//            Utility.currencyTXT(amount, Objects.requireNonNull(nominal), WithdrawActivity.this);
+            Utility.convertLocaleCurrencyTV(amount, WithdrawActivity.this, Objects.requireNonNull(nominal));
             petunjuk.setHasFixedSize(true);
             petunjuk.setNestedScrollingEnabled(false);
             petunjuk.setLayoutManager(new GridLayoutManager(this, 1));

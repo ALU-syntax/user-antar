@@ -449,13 +449,17 @@ public class RentCarActivity extends AppCompatActivity
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, diskontotal);
                         }
                     } else {
                         btnpromo.setEnabled(true);
@@ -466,13 +470,17 @@ public class RentCarActivity extends AppCompatActivity
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RentCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(diskon, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, diskontotal);
                         }
                     }
                 } else {
@@ -506,7 +514,8 @@ public class RentCarActivity extends AppCompatActivity
             fiturtext.setText("12 jam");
         }
 
-        Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+//        Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+        Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, String.valueOf(promocode));
         checkedpaywallet = "0";
         Log.e("CHECKEDWALLET", checkedpaywallet);
         checkedcash.setSelected(true);
@@ -522,15 +531,18 @@ public class RentCarActivity extends AppCompatActivity
         if (biayaTotal < Double.parseDouble(biayaminimum)) {
             this.harga = Long.parseLong(biayaminimum);
             biayaTotal = Long.parseLong(biayaminimum);
-            Utility.currencyTXT(cost, biaya, this);
+//            Utility.currencyTXT(cost, biaya, this);
+            Utility.convertLocaleCurrencyTV(cost, this, biaya);
         } else {
-            Utility.currencyTXT(cost, getbiaya, this);
+//            Utility.currencyTXT(cost, getbiaya, this);
+            Utility.convertLocaleCurrencyTV(cost, this, getbiaya);
         }
         this.harga = biayaTotal;
 
         final long finalBiayaTotal = biayaTotal;
         String totalbiaya = String.valueOf(finalBiayaTotal - promocode);
-        Utility.currencyTXT(priceText, totalbiaya, this);
+//        Utility.currencyTXT(priceText, totalbiaya, this);
+        Utility.convertLocaleCurrencyTV(priceText, this, totalbiaya);
 
         long saldokini = Long.parseLong(saldoWallet);
         if (saldokini < (biayaTotal - (harga * Double.parseDouble(biayaakhir)))) {
@@ -538,8 +550,10 @@ public class RentCarActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     String totalbiaya = String.valueOf(finalBiayaTotal - promocode);
-                    Utility.currencyTXT(priceText, totalbiaya, getBaseContext());
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+//                    Utility.currencyTXT(priceText, totalbiaya, getBaseContext());
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+                    Utility.convertLocaleCurrencyTV(priceText, getBaseContext(), totalbiaya);
+                    Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -557,8 +571,10 @@ public class RentCarActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     String totalbiaya = String.valueOf(finalBiayaTotal - promocode);
-                    Utility.currencyTXT(priceText, totalbiaya, context);
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+//                    Utility.currencyTXT(priceText, totalbiaya, context);
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), RentCarActivity.this);
+                    Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                    Utility.convertLocaleCurrencyTV(diskon, RentCarActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -578,9 +594,11 @@ public class RentCarActivity extends AppCompatActivity
                 public void onClick(View view) {
                     long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                     String totalwallet = String.valueOf(diskonwallet + promocode);
-                    Utility.currencyTXT(diskon, totalwallet, context);
+//                    Utility.currencyTXT(diskon, totalwallet, context);
+                    Utility.convertLocaleCurrencyTV(diskon, context, totalwallet);
                     String totalbiaya = String.valueOf(finalBiayaTotal1 - (diskonwallet + promocode));
-                    Utility.currencyTXT(priceText, totalbiaya, context);
+//                    Utility.currencyTXT(priceText, totalbiaya, context);
+                    Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
                     checkedcash.setSelected(false);
                     checkedwallet.setSelected(true);
                     checkedpaywallet = "1";
@@ -1167,7 +1185,8 @@ public class RentCarActivity extends AppCompatActivity
         super.onResume();
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
-        Utility.currencyTXT(saldotext, saldoWallet, this);
+//        Utility.currencyTXT(saldotext, saldoWallet, this);
+        Utility.convertLocaleCurrencyTV(saldotext, this, saldoWallet);
     }
 
 

@@ -111,8 +111,10 @@ public class ItemItem extends AbstractItem<ItemItem, ItemItem.ViewHolder> {
             holder.shimmerbadge.setVisibility(View.VISIBLE);
             holder.shimmerbadge.startShimmerAnimation();
             holder.hargadasar.setVisibility(View.VISIBLE);
-            Utility.currencyTXT(holder.hargadasar, String.valueOf(harga), context);
-            Utility.currencyTXT(holder.hargaText, String.valueOf(hargapromo), context);
+//            Utility.currencyTXT(holder.hargadasar, String.valueOf(harga), context);
+//            Utility.currencyTXT(holder.hargaText, String.valueOf(hargapromo), context);
+            Utility.convertLocaleCurrencyTV(holder.hargadasar, context, String.valueOf(harga));
+            Utility.convertLocaleCurrencyTV(holder.hargaText, context, String.valueOf(hargapromo));
             holder.hargadasar.setPaintFlags(holder.hargadasar.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.deskripsiText.setMinLines(2);
         } else {
@@ -120,7 +122,8 @@ public class ItemItem extends AbstractItem<ItemItem, ItemItem.ViewHolder> {
             holder.shimmerbadge.setVisibility(View.GONE);
             holder.shimmerbadge.stopShimmerAnimation();
             holder.hargadasar.setVisibility(View.GONE);
-            Utility.currencyTXT(holder.hargaText, String.valueOf(harga), context);
+//            Utility.currencyTXT(holder.hargaText, String.valueOf(harga), context);
+            Utility.convertLocaleCurrencyTV(holder.hargaText, context, String.valueOf(harga));
         }
 
         holder.addQuantity.setOnClickListener(new View.OnClickListener() {

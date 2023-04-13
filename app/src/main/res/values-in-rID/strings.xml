@@ -99,4 +99,10 @@
     <string name="choose_language">Pilih Bahasa</string>
     <string name="menu_voucher">Voucher</string>
     <string name="currency">Rp</string>
+    <string name="voucher_potongan">Potongan Voucher: </string>
+    <string name="voucher_jumlah">Jumlah voucher: </string>
+    <string name="voucher_type">Tipe Voucher: </string>
+    <string name="voucher_minimum">Transaksi Minimal: </string>
+    <string name="voucher_expired">Sampai Tanggal: </string>
+    <string name="voucher_price">Harga: </string>
 </resources>

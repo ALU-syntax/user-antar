@@ -194,4 +194,46 @@ public class Utility {
         }
     }
 
+    public static void convertLocaleCurrencyTV(TextView text, Context context,String nominal, String textAdditional){
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        switch (LocaleHelper.getLanguage(context))
+        {
+            case "en":
+                Currency currency = Currency.getInstance("USD");
+                DecimalFormat decimalFormat = new DecimalFormat("#¤");
+                decimalFormat.setCurrency(currency);
+                Double currencyDollar = 0.000067;
+                Double convertDollar = Double.parseDouble(nominal) * currencyDollar;
+
+                String formattedString = decimalFormat.format(convertDollar);
+
+                text.setText(formattedString.replace(",", "."));
+                break;
+            case "km":
+                Double currencyCambodianReal = 0.270410891973339136;
+                Double convertToCambodianReal = Double.parseDouble(nominal) * currencyCambodianReal;
+
+                if (nominal.length() == 1) {
+                    text.setText(textAdditional + " ៛"+"0.0" + nominal);
+                } else if (nominal.length() == 2) {
+                    text.setText(textAdditional + " ៛"+"0." + nominal);
+                } else {
+                    String formattedStringCambodiaReal = formatter.format(convertToCambodianReal);
+                    text.setText(textAdditional + " ៛" + formattedStringCambodiaReal.replace(",","."));
+                }
+                break;
+            case "in":
+                if (nominal.length() == 1) {
+                    text.setText(textAdditional + " Rp"+"0.0" + nominal);
+                } else if (nominal.length() == 2) {
+                    text.setText(textAdditional + " Rp"+"0." + nominal);
+                } else {
+                    Double getprice = Double.valueOf(nominal);
+                    String formattedStringRupiah = formatter.format(getprice);
+                    text.setText(textAdditional + " Rp" + formattedStringRupiah.replace(",","."));
+                }
+                break;
+        }
+    }
+
 }

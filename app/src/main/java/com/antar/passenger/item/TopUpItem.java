@@ -44,7 +44,8 @@ public class TopUpItem extends RecyclerView.Adapter<TopUpItem.ItemRowHolder> imp
         holder.tvTitle.setText(s[0]);
         holder.tvTitle.setTextColor(getColor(holder.itemView.getContext(),
                 model.isStatus()));
-        Utility.currencyTXT(holder.tvPrice, String.valueOf(model.getPrice() + 600), holder.itemView.getContext());
+//        Utility.currencyTXT(holder.tvPrice, String.valueOf(model.getPrice() + 600), holder.itemView.getContext());
+        Utility.convertLocaleCurrencyTV(holder.tvPrice, holder.itemView.getContext(), String.valueOf(model.getPrice() + 600));
         holder.itemView.setOnClickListener(v -> {
             if (model.isStatus()) {
                 onClickListener.onClick(model);

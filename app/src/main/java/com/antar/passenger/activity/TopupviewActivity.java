@@ -90,7 +90,8 @@ public class TopupviewActivity extends AppCompatActivity {
             images.setScaleType(ImageView.ScaleType.FIT_XY);
             nominal = intent.getStringExtra("nominal");
 
-            Utility.currencyTXT(jumlah, Objects.requireNonNull(nominal), TopupviewActivity.this);
+//            Utility.currencyTXT(jumlah, Objects.requireNonNull(nominal), TopupviewActivity.this);
+            Utility.convertLocaleCurrencyTV(jumlah, TopupviewActivity.this, Objects.requireNonNull(nominal));
             petunjuk.setHasFixedSize(true);
             petunjuk.setNestedScrollingEnabled(false);
             petunjuk.setLayoutManager(new GridLayoutManager(this, 1));

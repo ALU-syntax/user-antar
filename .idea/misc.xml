@@ -14,12 +14,16 @@
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_midtrans.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_promo.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_provider_list.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_ride.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_select_voucher.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_terim.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_voucher_promo.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_topup.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_voucher_promo.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/activity_wallet.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_withdraw.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.21822916666666667" />
@@ -33,6 +37,7 @@
         <entry key="app/src/main/res/layout/item_promo.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_select_voucher.xml" value="0.20029455081001474" />
         <entry key="app/src/main/res/layout/item_voucher.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_wallet.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimercategoryfood.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlist.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlistdetail.xml" value="0.21822916666666667" />

@@ -239,7 +239,8 @@ public class RideCarActivity extends AppCompatActivity
                                 updateDistance(distance);
                                 fiturtext.setText(time);
                                 String diskontotal = String.valueOf(promocode);
-                                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                             } else {
                                 detail.setVisibility(View.GONE);
                                 setDestinationContainer.setVisibility(View.VISIBLE);
@@ -426,13 +427,17 @@ public class RideCarActivity extends AppCompatActivity
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                         }
                     } else {
                         btnpromo.setEnabled(true);
@@ -443,13 +448,17 @@ public class RideCarActivity extends AppCompatActivity
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                         }
                     }
                 } else {
@@ -831,23 +840,28 @@ public class RideCarActivity extends AppCompatActivity
         if (biayaTotal < Double.parseDouble(biayaminimum)) {
             this.harga = Long.parseLong(biayaminimum);
             biayaTotal = Long.parseLong(biayaminimum);
-            Utility.currencyTXT(cost, biaya, this);
+//            Utility.currencyTXT(cost, biaya, this);
+            Utility.convertLocaleCurrencyTV(cost, this, biaya);
         } else {
-            Utility.currencyTXT(cost, getbiaya, this);
+//            Utility.currencyTXT(cost, getbiaya, this);
+            Utility.convertLocaleCurrencyTV(cost, this, getbiaya);
         }
         this.harga = biayaTotal;
 
         final long finalBiayaTotal = biayaTotal;
         String totalbiaya = String.valueOf(finalBiayaTotal);
-        Utility.currencyTXT(priceText, totalbiaya, this);
+//        Utility.currencyTXT(priceText, totalbiaya, this);
+        Utility.convertLocaleCurrencyTV(priceText, this, totalbiaya);
 
         long saldokini = Long.parseLong(saldoWallet);
         if (saldokini < (biayaTotal - (harga * Double.parseDouble(biayaakhir)))) {
             llcheckedcash.setOnClickListener(view -> {
                 String totalbiaya12 = String.valueOf(finalBiayaTotal - promocode);
-                Utility.currencyTXT(priceText, totalbiaya12, context);
+//                Utility.currencyTXT(priceText, totalbiaya12, context);
+                Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya12);
                 String diskontotal = String.valueOf(promocode);
-                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
                 checkedcash.setSelected(true);
                 checkedwallet.setSelected(false);
                 checkedpaywallet = "0";
@@ -863,8 +877,10 @@ public class RideCarActivity extends AppCompatActivity
             llcheckedcash.setOnClickListener(view -> {
                 String diskontotal = String.valueOf(promocode);
                 String totalbiaya1 = String.valueOf(finalBiayaTotal - promocode);
-                Utility.currencyTXT(priceText, totalbiaya1, context);
-                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+//                Utility.currencyTXT(priceText, totalbiaya1, context);
+//                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
+                Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya1);
+                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
 
                 checkedcash.setSelected(true);
                 checkedwallet.setSelected(false);
@@ -882,9 +898,11 @@ public class RideCarActivity extends AppCompatActivity
             llcheckedwallet.setOnClickListener(view -> {
                 long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                 String totalwallet = String.valueOf(diskonwallet + promocode);
-                Utility.currencyTXT(diskon, totalwallet, context);
+//                Utility.currencyTXT(diskon, totalwallet, context);
+                Utility.convertLocaleCurrencyTV(diskon, context, totalwallet);
                 String totalbiaya13 = String.valueOf(finalBiayaTotal1 - (diskonwallet + promocode));
-                Utility.currencyTXT(priceText, totalbiaya13, context);
+//                Utility.currencyTXT(priceText, totalbiaya13, context);
+                Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya13);
                 checkedcash.setSelected(false);
                 checkedwallet.setSelected(true);
                 checkedpaywallet = "1";
@@ -1218,7 +1236,8 @@ public class RideCarActivity extends AppCompatActivity
         super.onResume();
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
-        Utility.currencyTXT(saldotext, saldoWallet, this);
+//        Utility.currencyTXT(saldotext, saldoWallet, this);
+        Utility.convertLocaleCurrencyTV(saldotext, this, saldoWallet);
     }
 
 
@@ -1232,7 +1251,7 @@ public class RideCarActivity extends AppCompatActivity
                 .setPositiveButton("Book Manual", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String message = "BUMDES-KU"
+                        String message = "Antar"
                                 + "\n" +
                                 "Asal : " + pickUpText.getText().toString()
                                 + "\n " +

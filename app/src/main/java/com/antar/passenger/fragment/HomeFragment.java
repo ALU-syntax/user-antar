@@ -467,7 +467,8 @@ public class HomeFragment extends Fragment {
                         sp.updatehargapulsa(response.body().getHargaPulsa());
                         AyoPulsaApiHelper.getInstance().setPassword(response.body().getAyoPesanApiPassword());
                         AyoPulsaApiHelper.getInstance().setHeader("Bearer "+ response.body().getAyoPesanApiToken());
-                        Utility.currencyTXT(saldo, response.body().getSaldo(), context);
+//                        Utility.currencyTXT(saldo, response.body().getSaldo(), context);
+                        Utility.convertLocaleCurrencyTV(saldo, context, response.body().getSaldo());
 
                         if (response.body().getSlider().isEmpty()) {
                             llslider.setVisibility(View.GONE);
@@ -701,7 +702,8 @@ public class HomeFragment extends Fragment {
         super.onResume();
         User loginUser = BaseApp.getInstance(context).getLoginUser();
         nama.setText(loginUser.getFullnama());
-        Utility.currencyTXT(saldo, String.valueOf(loginUser.getWalletSaldo()), context);
+//        Utility.currencyTXT(saldo, String.valueOf(loginUser.getWalletSaldo()), context);
+        Utility.convertLocaleCurrencyTV(saldo, context, String.valueOf(loginUser.getWalletSaldo()));
         getlocation();
         HashMap<String, String> wilayah = sessionWilayah.getSessionData();
         String idwil = wilayah.get(sessionWilayah.IDWILAYAH);

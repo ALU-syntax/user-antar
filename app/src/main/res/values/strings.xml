@@ -98,4 +98,10 @@
     <string name="choose_language">Choose Language</string>
     <string name="menu_voucher">Voucher</string>
     <string name="currency">Rp</string>
+    <string name="voucher_potongan">Potongan Voucher: </string>
+    <string name="voucher_jumlah">Jumlah voucher: </string>
+    <string name="voucher_type">Tipe Voucher: </string>
+    <string name="voucher_minimum">Minimum Order: </string>
+    <string name="voucher_expired">Expired: </string>
+    <string name="voucher_price">Harga: </string>
 </resources>

@@ -53,7 +53,8 @@ public class HistoryItem extends RecyclerView.Adapter<HistoryItem.ItemRowHolder>
         final AllTransaksiModel singleItem = dataList.get(position);
         holder.text.setText("Order " + singleItem.getFitur());
 
-        Utility.currencyTXT(holder.nominal, singleItem.getBiayaakhir(), mContext);
+//        Utility.currencyTXT(holder.nominal, singleItem.getBiayaakhir(), mContext);
+        Utility.convertLocaleCurrencyTV(holder.nominal, mContext, singleItem.getBiayaakhir());
         holder.keterangan.setText(singleItem.getStatustransaksi());
 
 

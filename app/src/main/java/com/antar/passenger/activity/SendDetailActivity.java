@@ -271,8 +271,10 @@ public class SendDetailActivity extends AppCompatActivity {
         float km = ((float) distance);
         String format = String.format(Locale.US, "%.1f", km);
         distanceText.setText(format);
-        Utility.currencyTXT(cost, String.valueOf(price), this);
-        Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+//        Utility.currencyTXT(cost, String.valueOf(price), this);
+//        Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+        Utility.convertLocaleCurrencyTV(cost, this, String.valueOf(price));
+        Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
         diskontext.setText("Discount " + fiturModel.getDiskon() + " with Wallet");
 
         checkedpaywallet = "0";
@@ -291,15 +293,18 @@ public class SendDetailActivity extends AppCompatActivity {
         if (biayaTotal < Double.parseDouble(Objects.requireNonNull(biayaminimum))) {
             this.harga = Long.parseLong(biayaminimum);
             biayaTotal = Long.parseLong(biayaminimum);
-            Utility.currencyTXT(cost, biaya, this);
+//            Utility.currencyTXT(cost, biaya, this);
+            Utility.convertLocaleCurrencyTV(cost, this, biaya);
         } else {
-            Utility.currencyTXT(cost, price, this);
+//            Utility.currencyTXT(cost, price, this);
+            Utility.convertLocaleCurrencyTV(cost, this, price);
         }
         this.harga = biayaTotal;
 
         final long finalBiayaTotal = biayaTotal;
         String totalbiaya = String.valueOf(finalBiayaTotal);
-        Utility.currencyTXT(priceText, totalbiaya, this);
+//        Utility.currencyTXT(priceText, totalbiaya, this);
+        Utility.convertLocaleCurrencyTV(priceText, this, totalbiaya);
 
         long saldokini = Long.parseLong(saldoWallet);
         if (saldokini < (biayaTotal - (harga * Double.parseDouble(biayaakhir)))) {
@@ -307,8 +312,10 @@ public class SendDetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     String totalbiaya = String.valueOf(finalBiayaTotal);
-                    Utility.currencyTXT(priceText, totalbiaya, context);
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+//                    Utility.currencyTXT(priceText, totalbiaya, context);
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+                    Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -326,8 +333,10 @@ public class SendDetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     String totalbiaya = String.valueOf(finalBiayaTotal);
-                    Utility.currencyTXT(priceText, totalbiaya, context);
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+//                    Utility.currencyTXT(priceText, totalbiaya, context);
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
+                    Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -347,9 +356,11 @@ public class SendDetailActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                     String totalwallet = String.valueOf(diskonwallet + promocode);
-                    Utility.currencyTXT(diskon, totalwallet, context);
+//                    Utility.currencyTXT(diskon, totalwallet, context);
+                    Utility.convertLocaleCurrencyTV(diskon, context, totalwallet);
                     String totalbiaya = String.valueOf(finalBiayaTotal1 - (diskonwallet + promocode));
-                    Utility.currencyTXT(priceText, totalbiaya, context);
+//                    Utility.currencyTXT(priceText, totalbiaya, context);
+                    Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
                     checkedcash.setSelected(false);
                     checkedwallet.setSelected(true);
                     checkedpaywallet = "1";
@@ -598,13 +609,17 @@ public class SendDetailActivity extends AppCompatActivity {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context,totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
                         }
                     } else {
                         btnpromo.setEnabled(true);
@@ -615,13 +630,17 @@ public class SendDetailActivity extends AppCompatActivity {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
                             String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
                         } else {
                             String diskontotal = String.valueOf(promocode);
                             String totalbiaya = String.valueOf(harga - promocode);
-                            Utility.currencyTXT(priceText, totalbiaya, context);
-                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+//                            Utility.currencyTXT(priceText, totalbiaya, context);
+//                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
+                            Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
+                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
                         }
                     }
                 } else {
@@ -643,7 +662,8 @@ public class SendDetailActivity extends AppCompatActivity {
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
 
-        Utility.currencyTXT(saldotext, saldoWallet, this);
+//        Utility.currencyTXT(saldotext, saldoWallet, this);
+        Utility.convertLocaleCurrencyTV(saldotext , this, saldoWallet);
     }
 
     @Override

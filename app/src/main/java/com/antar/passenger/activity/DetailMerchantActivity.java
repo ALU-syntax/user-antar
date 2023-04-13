@@ -71,6 +71,7 @@ import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -283,7 +284,8 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
         }
 
         qtytext.setText("" + quantity + " Item");
-        Utility.currencyTXT(costtext, String.valueOf(cost), this);
+//        Utility.currencyTXT(costtext, String.valueOf(cost), this);
+        Utility.convertLocaleCurrencyTV(costtext, this, String.valueOf(cost));
     }
 
     private void getdata(Location location) {
@@ -608,12 +610,16 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
 
         if (selectedItem.getStatus_promo().equals("1")) {
             hargapromo.setVisibility(View.VISIBLE);
-            Utility.currencyTXT(harga, selectedItem.getHarga_promo(), this);
-            Utility.currencyTXT(hargapromo, selectedItem.getHarga_item(), this);
+//            Utility.currencyTXT(harga, selectedItem.getHarga_promo(), this);
+//            Utility.currencyTXT(hargapromo, selectedItem.getHarga_item(), this);
+            Utility.convertLocaleCurrencyTV(harga, this, selectedItem.getHarga_promo());
+            Utility.convertLocaleCurrencyTV(hargapromo, this, selectedItem.getHarga_item());
+
             hargapromo.setPaintFlags(hargapromo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
             hargapromo.setVisibility(View.GONE);
-            Utility.currencyTXT(harga, selectedItem.getHarga_item(), this);
+//            Utility.currencyTXT(harga, selectedItem.getHarga_item(), this);
+            Utility.convertLocaleCurrencyTV(harga, this, selectedItem.getHarga_item());
 
         }
 

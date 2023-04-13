@@ -287,7 +287,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         diskontext.setText("Discount " + designedFitur.getDiskon() + " with Wallet");
         total.setText("wait");
         deliveryfee.setText("wait");
-        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+//        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
 
@@ -512,14 +513,16 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
             cost += existingFood.get(p).getTotalHarga();
         }
         foodCostLong = cost;
-        Utility.currencyTXT(orderprice, String.valueOf(foodCostLong), this);
+//        Utility.currencyTXT(orderprice, String.valueOf(foodCostLong), this);
+        Utility.convertLocaleCurrencyTV(orderprice, this, String.valueOf(foodCostLong));
         MapDirectionAPI.getDirection(pickUpLatLang, destinationLatLang).enqueue(updateRouteCallback);
     }
 
     private void updateEstimatedItemCostNonMerchant() {
         long cost = total_harga_non_merchant;
         foodCostLong = cost;
-        Utility.currencyTXT(orderprice, String.valueOf(foodCostLong), this);
+//        Utility.currencyTXT(orderprice, String.valueOf(foodCostLong), this);
+        Utility.convertLocaleCurrencyTV(orderprice, this, String.valueOf(foodCostLong));
         MapDirectionAPI.getDirection(pickUpLatLang, destinationLatLang).enqueue(updateRouteCallback);
     }
 
@@ -568,18 +571,23 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         deliveryCostLong = biayaTotal;
         Log.e("distance", String.valueOf(deliveryCostLong));
 
-        Utility.currencyTXT(deliveryfee, String.valueOf(deliveryCostLong), this);
+//        Utility.currencyTXT(deliveryfee, String.valueOf(deliveryCostLong), this);
+        Utility.convertLocaleCurrencyTV(deliveryfee, this, String.valueOf(deliveryCostLong));
         final long finalBiayaTotalpay = foodCostLong + harga;
 
-        Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
-        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+//        Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
+//        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+        Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay));
+        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
         long saldokini = Long.parseLong(saldoWallet);
         if (saldokini < ((foodCostLong + harga) - (finalBiayaTotalpay * Double.parseDouble(biayaakhir)))) {
             llcheckedcash.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+//                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+                    Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaycash = "1";
@@ -599,8 +607,10 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
             llcheckedcash.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
-                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+//                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
+//                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
+                    Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaycash = "1";
@@ -621,8 +631,10 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                     long diskonwallet = (long) ((finalBiayaTotalpay * Double.parseDouble(biayaakhir)) + promocode);
                     Log.e("distance", String.valueOf((foodCostLong + harga) - (finalBiayaTotalpay * Double.parseDouble(biayaakhir))));
                     String totalwallet = String.valueOf(diskonwallet);
-                    Utility.currencyTXT(diskon, totalwallet, DetailOrderActivity.this);
-                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - diskonwallet), DetailOrderActivity.this);
+//                    Utility.currencyTXT(diskon, totalwallet, DetailOrderActivity.this);
+//                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - diskonwallet), DetailOrderActivity.this);
+                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, totalwallet);
+                    Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - diskonwallet));
                     checkedcash.setSelected(false);
                     checkedwallet.setSelected(true);
                     checkedpaycash = "0";
@@ -960,7 +972,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         super.onResume();
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
-        Utility.currencyTXT(saldotext, saldoWallet, this);
+//        Utility.currencyTXT(saldotext, saldoWallet, this);
+        Utility.convertLocaleCurrencyTV(saldotext, this, saldoWallet);
     }
 
     private void getkey() {

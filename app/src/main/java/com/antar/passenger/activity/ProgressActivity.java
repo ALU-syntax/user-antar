@@ -554,7 +554,8 @@ public class ProgressActivity extends AppCompatActivity
                         if (designedFitur.getHome().equals("4")) {
                             requestRoute();
                             llmerchantdetail.setVisibility(View.VISIBLE);
-                            Utility.currencyTXT(fiturtext, String.valueOf(transaksi.getHarga()), ProgressActivity.this);
+//                            Utility.currencyTXT(fiturtext, String.valueOf(transaksi.getHarga()), ProgressActivity.this);
+                            Utility.convertLocaleCurrencyTV(fiturtext, ProgressActivity.this, String.valueOf(transaksi.getHarga()));
                             lldistance.setVisibility(View.GONE);
                             time.setText("Delivery Fee");
                             costtext.setText("Order Cost");
@@ -935,10 +936,12 @@ public class ProgressActivity extends AppCompatActivity
         layanan.setText(driver.getNamaDriver());
         if (fiturmodel.getHome().equals("4")) {
             pickUpText.setText(request.getNama_merchant());
-            Utility.currencyTXT(cost, String.valueOf(request.getTotal_biaya()), this);
+//            Utility.currencyTXT(cost, String.valueOf(request.getTotal_biaya()), this);
+            Utility.convertLocaleCurrencyTV(cost, this, String.valueOf(request.getTotal_biaya()));
         } else {
             pickUpText.setText(request.getAlamatAsal());
-            Utility.currencyTXT(cost, String.valueOf(request.getHarga()), this);
+//            Utility.currencyTXT(cost, String.valueOf(request.getHarga()), this);
+            Utility.convertLocaleCurrencyTV(cost, this, String.valueOf(request.getHarga()));
         }
 
         destinationText.setText(request.getAlamatTujuan());
@@ -960,8 +963,10 @@ public class ProgressActivity extends AppCompatActivity
         }
 
 
-        Utility.currencyTXT(diskon, request.getKreditPromo(), this);
-        Utility.currencyTXT(priceText, String.valueOf(request.getBiaya_akhir()), this);
+//        Utility.currencyTXT(diskon, request.getKreditPromo(), this);
+//        Utility.currencyTXT(priceText, String.valueOf(request.getBiaya_akhir()), this);
+        Utility.convertLocaleCurrencyTV(diskon, this, request.getKreditPromo());
+        Utility.convertLocaleCurrencyTV(priceText, this, String.valueOf(request.getBiaya_akhir()));
 
         phone.setOnClickListener(new View.OnClickListener() {
             @Override

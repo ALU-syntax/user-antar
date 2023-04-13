@@ -19,7 +19,7 @@ import com.antar.passenger.utils.Utility;
 
 public class DetailVoucherActivity extends AppCompatActivity {
     TextView tvDesc, tvVoucherName, tvVoucherPrice, tvVoucherExpired, tvMinimumOrder, tvVoucherType
-            ,tvQuantityVoucher;
+            ,tvQuantityVoucher, tvNominalVoucher;
     ImageView ivVoucher;
     AppCompatButton btnBuy;
 
@@ -34,27 +34,28 @@ public class DetailVoucherActivity extends AppCompatActivity {
         tvMinimumOrder = findViewById(R.id.tv_minimum_order);
         tvVoucherType = findViewById(R.id.tv_type);
         tvQuantityVoucher = findViewById(R.id.tv_isi_voucher);
+        tvNominalVoucher = findViewById(R.id.tv_nominal);
         ivVoucher = findViewById(R.id.iv_voucher_poster);
         btnBuy = findViewById(R.id.btn_buy);
 
         String voucherName = getIntent().getStringExtra("voucherName");
         String voucherPrice = getIntent().getStringExtra("voucherPrice");
         String voucherDesc = getIntent().getStringExtra("voucherDesc");
-        String voucherExpired = getIntent().getStringExtra("voucherExpired");
+        String voucherExpired = getString(R.string.voucher_expired) +  getIntent().getStringExtra("voucherExpired");
         String voucherPoster = getIntent().getStringExtra("voucherPoster");
-        String voucherQuantity = getIntent().getStringExtra("voucherQuantity");
+        String voucherQuantity = getString(R.string.voucher_jumlah) +  getIntent().getStringExtra("voucherQuantity");
         String voucherNominal = getIntent().getStringExtra("voucherNominal");
-        String voucherMinimumOrder = getIntent().getStringExtra("voucherMinimumOrder");
-        String voucherType = getIntent().getStringExtra("voucherType");
+        String voucherMinimumOrder = getString(R.string.voucher_minimum) +  getIntent().getStringExtra("voucherMinimumOrder");
+        String voucherType = getString(R.string.voucher_type) +  getIntent().getStringExtra("voucherType");
 
         tvDesc.setText(voucherDesc);
         tvVoucherName.setText(voucherName);
-        Utility.convertLocaleCurrencyTV(tvVoucherPrice, this, voucherPrice);
+        Utility.convertLocaleCurrencyTV(tvVoucherPrice, this, voucherPrice, getString(R.string.voucher_price));
         tvVoucherExpired.setText(voucherExpired);
-        tvMinimumOrder.setText(String.valueOf(voucherMinimumOrder));
+        tvMinimumOrder.setText(voucherMinimumOrder);
         tvVoucherType.setText(voucherType);
-        tvQuantityVoucher.setText(String.valueOf(voucherQuantity));
-
+        tvQuantityVoucher.setText(voucherQuantity);
+        Utility.convertLocaleCurrencyTV(tvNominalVoucher, this, voucherNominal, getString(R.string.voucher_potongan) );
 
         if(!voucherPoster.isEmpty()){
             PicassoTrustAll.getInstance(this)
