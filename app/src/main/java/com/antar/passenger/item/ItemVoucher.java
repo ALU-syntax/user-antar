@@ -75,6 +75,7 @@ public class ItemVoucher extends RecyclerView.Adapter<ItemVoucher.ViewHolder> {
                 i.putExtra("voucherNominal", String.valueOf(voucherModel.getVoucherNominal()));
                 i.putExtra("voucherMinimumOrder", String.valueOf(voucherModel.getMinimumTransaksi()));
                 i.putExtra("voucherType", voucherModel.getVoucherType());
+                i.putExtra("idVoucher", String.valueOf(voucherModel.getId()));
                 mContext.startActivity(i);
             }
         });

@@ -18,17 +18,26 @@
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_promo.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_provider_list.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_ride.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_ride.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_select_voucher.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_terim.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_topup.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_topupview.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/activity_voucher_promo.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/activity_wallet.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_withdraw.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/custom_dialog_result.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/custom_dialog_search.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/dialog_aboutus.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/dialog_payment_details.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/dialog_payment_method.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/dialog_spinner_dropdown_item.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/dialog_spinner_item.xml" value="0.14022757697456492" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_enablelocation.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_fullimage.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_recycle.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_fitur.xml" value="0.21822916666666667" />
@@ -38,6 +47,7 @@
         <entry key="app/src/main/res/layout/item_select_voucher.xml" value="0.20029455081001474" />
         <entry key="app/src/main/res/layout/item_voucher.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_wallet.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/pop_up_transfer_method.xml" value="0.17828131680205217" />
         <entry key="app/src/main/res/layout/shimercategoryfood.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlist.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlistdetail.xml" value="0.21822916666666667" />

@@ -6,6 +6,8 @@ import com.antar.passenger.json.AllTransResponseJson;
 import com.antar.passenger.json.BankResponseJson;
 import com.antar.passenger.json.BeritaDetailRequestJson;
 import com.antar.passenger.json.BeritaDetailResponseJson;
+import com.antar.passenger.json.BuyVoucherRequestJson;
+import com.antar.passenger.json.BuyVoucherResponse;
 import com.antar.passenger.json.ChangePassRequestJson;
 import com.antar.passenger.json.DaftarWilayahRequestJson;
 import com.antar.passenger.json.DaftarWilayahResponseJson;
@@ -200,5 +202,8 @@ public interface UserService {
 
     @POST("pelanggan/uservoucher")
     Call<UserVoucherResponseJson> userVoucher(@Body UserVoucherRequestJson param);
+
+    @POST("pelanggan/buyvoucher")
+    Call<BuyVoucherResponse> buyVoucher(@Body BuyVoucherRequestJson request);
 
 }

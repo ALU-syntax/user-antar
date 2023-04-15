@@ -48,9 +48,9 @@
 
 
         <RelativeLayout
-            android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar">
 
             <LinearLayout
                 android:id="@+id/llnominal"
@@ -185,7 +185,6 @@
                             android:textSize="10dp" />
                     </RelativeLayout>
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
