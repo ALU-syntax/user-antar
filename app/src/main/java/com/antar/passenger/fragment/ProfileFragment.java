@@ -38,6 +38,7 @@ import com.antar.passenger.R;
 import com.antar.passenger.activity.ChangepassActivity;
 import com.antar.passenger.activity.EditProfileActivity;
 import com.antar.passenger.activity.IntroActivity;
+import com.antar.passenger.activity.MyVoucherActivity;
 import com.antar.passenger.activity.PrivacyActivity;
 import com.antar.passenger.constants.BaseApp;
 import com.antar.passenger.constants.Constants;
@@ -83,6 +84,7 @@ public class ProfileFragment extends Fragment {
         LinearLayout logout = getView.findViewById(R.id.lllogout);
         LinearLayout llpassword = getView.findViewById(R.id.llpassword);
         LinearLayout llChangeLanguange = getView.findViewById(R.id.llchangelangaunge);
+        LinearLayout llMyVoucher = getView.findViewById(R.id.llmyvoucher);
         sp = new SettingPreference(context);
 
 
@@ -166,6 +168,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clickDone();
+            }
+        });
+
+        llMyVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, MyVoucherActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
 

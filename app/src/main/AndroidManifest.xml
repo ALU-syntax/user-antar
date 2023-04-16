@@ -28,6 +28,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".activity.MyVoucherActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SelectVoucherActivity"
             android:exported="false" />
         <activity
