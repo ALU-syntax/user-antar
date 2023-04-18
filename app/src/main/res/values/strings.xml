@@ -104,4 +104,15 @@
     <string name="voucher_minimum">Minimum Order: </string>
     <string name="voucher_expired">Expired: </string>
     <string name="voucher_price">Harga: </string>
+    <string name="profil_copy_referal">Salin Referal Code</string>
+    <string name="profile_my_voucher">My Voucher</string>
+    <string name="ridecar_activity_location">Lokasi</string>
+    <string name="all_merchant_activity_your_location">Lokasi kamu</string>
+    <string name="send_activity_location">Lokasi</string>
+    <string name="hint_send_activity_destination">Tujuan</string>
+    <string name="send_activity_destination_2">Tujuan Kedua</string>
+    <string name="send_activity_destination_3">Tujuan Ketiga</string>
+    <string name="send_activity_destination_4">Tujuan Keempat</string>
+    <string name="send_activity_destination_5">Tujuan Kelima</string>
+    <string name="send_activity_next">Next</string>
 </resources>

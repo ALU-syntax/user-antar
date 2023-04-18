@@ -334,7 +334,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:text="Lokasi"
+                        android:text="@string/send_activity_location"
                         android:textSize="18dp" />
 
                     <LinearLayout
@@ -387,7 +387,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:background="@color/transparent"
-                            android:hint="Tujuan"
+                            android:hint="@string/hint_send_activity_destination"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="15dp" />
@@ -409,7 +409,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@color/transparent"
-                        android:text="Tujuan Kedua"
+                        android:text="@string/send_activity_destination_2"
                         android:textSize="15dp" />
 
                     <LinearLayout
@@ -434,7 +434,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:background="@color/transparent"
-                            android:hint="Tujuan Kedua"
+                            android:hint="@string/send_activity_destination_2"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="15dp" />
@@ -456,7 +456,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@color/transparent"
-                        android:text="Tujuan Ketiga"
+                        android:text="@string/send_activity_destination_3"
                         android:textSize="15dp" />
 
                     <LinearLayout
@@ -481,7 +481,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:background="@color/transparent"
-                            android:hint="Tujuan Ketiga"
+                            android:hint="@string/send_activity_destination_3"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="15dp" />
@@ -503,7 +503,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@color/transparent"
-                        android:text="Tujuan Keempat"
+                        android:text="@string/send_activity_destination_4"
                         android:textSize="15dp" />
 
                     <LinearLayout
@@ -528,7 +528,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:background="@color/transparent"
-                            android:hint="Tujuan Keempat"
+                            android:hint="@string/send_activity_destination_4"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="15dp" />
@@ -550,7 +550,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@color/transparent"
-                        android:text="Tujuan Kelima"
+                        android:text="@string/send_activity_destination_5"
                         android:textSize="15dp" />
 
                     <LinearLayout
@@ -575,7 +575,7 @@
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:background="@color/transparent"
-                            android:hint="Tujuan Kelima"
+                            android:hint="@string/send_activity_destination_5"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray"
                             android:textSize="15dp" />
@@ -604,7 +604,7 @@
                             android:layout_margin="15dp"
                             android:layout_marginTop="15dp"
                             android:background="@drawable/button_round_1"
-                            android:text="Next"
+                            android:text="@string/send_activity_next"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="18sp"

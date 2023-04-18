@@ -40,7 +40,7 @@
                 <customfonts.TextViewSFProDisplayRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lokasi kamu"
+                    android:text="@string/all_merchant_activity_your_location"
                     android:textColor="@color/black"
                     android:textSize="12dp" />
 
