@@ -27,20 +27,8 @@ public class UserVoucherResponseJson {
     private String message;
 
     @Expose
-    @SerializedName("id")
-    private String id;
-
-    @Expose
-    @SerializedName("id_user")
-    private String idUser;
-
-    @Expose
-    @SerializedName("id_voucher")
-    private List<VoucherModel> voucher;
-
-    @Expose
-    @SerializedName("quantity")
-    private String quantity;
+    @SerializedName("data")
+    private List<MyVoucherResponseJson> myVoucherResponseJson;
 
     public String getCode() {
         return code;
@@ -58,35 +46,11 @@ public class UserVoucherResponseJson {
         this.message = message;
     }
 
-    public String getId() {
-        return id;
+    public List<MyVoucherResponseJson> getMyVoucherResponseJson() {
+        return myVoucherResponseJson;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
-
-    public List<VoucherModel> getVoucher() {
-        return voucher;
-    }
-
-    public void setVoucher(List<VoucherModel> voucher) {
-        this.voucher = voucher;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setMyVoucherResponseJson(List<MyVoucherResponseJson> myVoucherResponseJson) {
+        this.myVoucherResponseJson = myVoucherResponseJson;
     }
 }

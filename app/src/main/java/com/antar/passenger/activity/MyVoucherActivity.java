@@ -13,13 +13,20 @@ import com.antar.passenger.R;
 import com.antar.passenger.constants.BaseApp;
 import com.antar.passenger.item.ItemVoucher;
 import com.antar.passenger.item.MyVoucherItem;
+import com.antar.passenger.json.MyVoucherResponseJson;
 import com.antar.passenger.json.UserVoucherRequestJson;
 import com.antar.passenger.json.UserVoucherResponseJson;
 import com.antar.passenger.json.VoucherResponseJson;
 import com.antar.passenger.models.User;
+import com.antar.passenger.models.VoucherModel;
 import com.antar.passenger.utils.api.ServiceGenerator;
 import com.antar.passenger.utils.api.service.UserService;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -31,6 +38,7 @@ public class MyVoucherActivity extends AppCompatActivity {
     ImageView ivBackButton;
     RecyclerView rvVoucher;
     MyVoucherItem myVoucherItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +62,26 @@ public class MyVoucherActivity extends AppCompatActivity {
         service.userVoucher(param).enqueue(new Callback<UserVoucherResponseJson>() {
             @Override
             public void onResponse(Call<UserVoucherResponseJson> call, Response<UserVoucherResponseJson> response) {
-                if(Objects.requireNonNull(response.body()).getVoucher().isEmpty()){
-//                    rlnodata.setVisibility(View.VISIBLE);
+                if(Objects.requireNonNull(response.body()).getMyVoucherResponseJson().isEmpty()){
+//                  rlnodata.setVisibility(View.VISIBLE);
                 }else{
 
-//                    itemVoucher = new ItemVoucher(response.body().getVoucherModelList(), R.layout.item_voucher, VoucherPromoActivity.this);
-//                    rvListVoucher.setAdapter(itemVoucher);
-                    myVoucherItem = new MyVoucherItem(response.body().getVoucher(), R.layout.item_my_voucher, MyVoucherActivity.this, response.body().getQuantity());
-
+//                    VoucherModel voucherModel = new VoucherModel();
+//                    for(MyVoucherResponseJson myVoucher : response.body().getMyVoucherResponseJson()){
+//                        voucherModel.setId(myVoucher.getIdVoucherPromo());
+//                        voucherModel.setVoucherName(myVoucher.getNamaVoucherPromo());
+//                        voucherModel.setDescription(myVoucher.getDescription());
+//                        voucherModel.setHargaVoucher(myVoucher.getHargaVoucher());
+//                        voucherModel.setVoucherNominal(myVoucher.getNominalVoucherPromo());
+//                        voucherModel.setVoucherType(myVoucher.getTypeVoucherPromo());
+//                        voucherModel.setIsiVoucher(myVoucher.getQuantity());
+//                        voucherModel.setMinimumTransaksi(myVoucher.getMinimumTransaksi());
+//                        voucherModel.setExpired(myVoucher.getExpired());
+//                        voucherModel.setFitur(myVoucher.getFitur());
+//                        voucherModel.setImageVoucher(myVoucher.getImageVoucherPromo());
+//                        voucherModel.setStatus(myVoucher.getStatus());
+//                    }
+                    myVoucherItem = new MyVoucherItem(response.body().getMyVoucherResponseJson(), R.layout.item_my_voucher, MyVoucherActivity.this);
                     rvVoucher.setHasFixedSize(true);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyVoucherActivity.this, LinearLayoutManager.VERTICAL, false);
                     rvVoucher.setLayoutManager(linearLayoutManager);

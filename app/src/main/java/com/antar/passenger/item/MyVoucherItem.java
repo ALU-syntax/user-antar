@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.antar.passenger.R;
 import com.antar.passenger.constants.Constants;
+import com.antar.passenger.json.MyVoucherResponseJson;
 import com.antar.passenger.models.UserVoucherModel;
 import com.antar.passenger.models.VoucherModel;
 import com.antar.passenger.utils.PicassoTrustAll;
@@ -28,7 +29,7 @@ import java.util.List;
  */
 public class MyVoucherItem extends RecyclerView.Adapter<MyVoucherItem.VoucherView> {
 
-    private List<VoucherModel> listVoucherModels;
+    private List<MyVoucherResponseJson> listVoucherModels;
     private int viewHolder;
     private Context mContext;
     private String quantity;
@@ -37,13 +38,13 @@ public class MyVoucherItem extends RecyclerView.Adapter<MyVoucherItem.VoucherVie
     public MyVoucherItem() {
     }
 
-    public MyVoucherItem(List<VoucherModel> listVoucherModels, int viewHolder, Context mContext) {
+    public MyVoucherItem(List<MyVoucherResponseJson> listVoucherModels, int viewHolder, Context mContext) {
         this.listVoucherModels = listVoucherModels;
         this.viewHolder = viewHolder;
         this.mContext = mContext;
     }
 
-    public MyVoucherItem(List<VoucherModel> listVoucherModels, int viewHolder, Context mContext, String quantity) {
+    public MyVoucherItem(List<MyVoucherResponseJson> listVoucherModels, int viewHolder, Context mContext, String quantity) {
         this.listVoucherModels = listVoucherModels;
         this.viewHolder = viewHolder;
         this.mContext = mContext;
@@ -59,20 +60,20 @@ public class MyVoucherItem extends RecyclerView.Adapter<MyVoucherItem.VoucherVie
 
     @Override
     public void onBindViewHolder(@NonNull VoucherView holder, int position) {
-        VoucherModel voucherModel = listVoucherModels.get(position);
+        MyVoucherResponseJson voucherModel = listVoucherModels.get(position);
         String txtVoucherExpired = "Expired: " + voucherModel.getExpired();
-        String txtVoucherQuantity = "Jumlah: " + quantity;
+        String txtVoucherQuantity = "Jumlah: " + voucherModel.getQuantity();
 
         holder.tvVoucherExpired.setText(txtVoucherExpired);
         holder.tvVoucherQuantity.setText(txtVoucherQuantity);
-        holder.tvNamaVoucher.setText(voucherModel.getVoucherName());
-        Utility.convertLocaleCurrencyTV(holder.tvNominalVoucher, mContext, String.valueOf(voucherModel.getVoucherNominal()), "Nilai Voucher:");
+        holder.tvNamaVoucher.setText(voucherModel.getNamaVoucherPromo());
+        Utility.convertLocaleCurrencyTV(holder.tvNominalVoucher, mContext, String.valueOf(voucherModel.getNominalVoucherPromo()), "Nilai Voucher:");
         holder.tvMinimumTransaction.setText(String.valueOf(voucherModel.getMinimumTransaksi()));
         Utility.convertLocaleCurrencyTV(holder.tvMinimumTransaction, mContext, String.valueOf(voucherModel.getMinimumTransaksi()), "Minimum Transaksi:");
 
-        if(!voucherModel.getImageVoucher().isEmpty()){
+        if(!voucherModel.getImageVoucherPromo().isEmpty()){
             PicassoTrustAll.getInstance(mContext)
-                    .load(Constants.IMAGESSLIDER + voucherModel.getImageVoucher())
+                    .load(Constants.IMAGESSLIDER + voucherModel.getImageVoucherPromo())
                     .into(holder.voucherImage);
         }
 
