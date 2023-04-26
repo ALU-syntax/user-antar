@@ -21,6 +21,7 @@ import com.antar.passenger.json.GetHomeRequestJson;
 import com.antar.passenger.json.GetHomeResponseJson;
 import com.antar.passenger.json.GetMerchantbyCatRequestJson;
 import com.antar.passenger.json.GetAyoPulsaBaseResponse;
+import com.antar.passenger.json.ListBankActiveResponseJson;
 import com.antar.passenger.json.LoginRequestJson;
 import com.antar.passenger.json.LoginResponseJson;
 import com.antar.passenger.json.MerchantByCatResponseJson;
@@ -199,6 +200,9 @@ public interface UserService {
 
     @GET("pelanggan/voucherpromo")
     Call<VoucherResponseJson> getVoucherPromo();
+
+    @GET("pelanggan/getlistbank")
+    Call<ListBankActiveResponseJson> listBankActive();
 
     @POST("pelanggan/uservoucher")
     Call<UserVoucherResponseJson> userVoucher(@Body UserVoucherRequestJson param);

@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -95,8 +96,10 @@ public class TopupSaldoActivity extends DuitkuClient {
             @Override
             public void onClick(View v) {
                 if (!et_nominal.getText().toString().isEmpty()) {
-                    settingMerchant();
-                    startPayment(TopupSaldoActivity.this); //optional
+//                    settingMerchant();
+//                    startPayment(TopupSaldoActivity.this); //optional
+                    Intent i = new Intent(TopupSaldoActivity.this, ListBankActivity.class);
+                    startActivity(i);
                 } else {
                     notif("nominal tidak boleh kosong!");
                 }

@@ -28,6 +28,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".activity.ListBankActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.MyVoucherActivity"
             android:exported="false" />
         <activity

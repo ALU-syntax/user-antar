@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_chat_other.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_list_bank.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_my_chat.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/backrouddrawable.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_gradient_soft.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_home_curve.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_home_wave.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_non_merchant.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_plus_minus.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bgwil.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_all_berita.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_all_merchant.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_beritadetail.xml" value="0.21822916666666667" />
@@ -12,6 +22,7 @@
         <entry key="app/src/main/res/layout/activity_editprofile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_fitur.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_list_bank.xml" value="0.1675929884566054" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_midtrans.xml" value="0.21822916666666667" />
@@ -42,7 +53,9 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.272" />
         <entry key="app/src/main/res/layout/fragment_recycle.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/item_bank.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_fitur.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/item_list_bank.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_my_voucher.xml" value="0.17828131680205217" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_pesanan.xml" value="0.1" />
