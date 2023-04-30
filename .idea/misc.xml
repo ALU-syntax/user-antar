@@ -30,9 +30,11 @@
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_promo.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_provider_list.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_rent.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_ride.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_select_voucher.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_send.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_send_detail.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_terim.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_topup.xml" value="0.21822916666666667" />

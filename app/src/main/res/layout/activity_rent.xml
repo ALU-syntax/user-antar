@@ -533,6 +533,62 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="15dp"
+                                android:text="Kode Voucher"
+                                android:textSize="18dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:background="@drawable/button_round_1"
+                                android:backgroundTint="@color/backgroundgray"
+                                android:orientation="horizontal">
+
+                                <customfonts.EditTextSFProDisplayMedium
+                                    android:id="@+id/vouchercode"
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/transparent"
+                                    android:hint="Ada Voucher?"
+                                    android:paddingLeft="10dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="15dp" />
+
+                                <customfonts.Button_SF_Pro_Display_Medium
+                                    android:id="@+id/btnvoucher"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/btn_min"
+                                    android:text="Kirim"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white" />
+
+                            </LinearLayout>
+
+                            <customfonts.TextViewSFProDisplayMedium
+                                android:id="@+id/vouchernotif"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="15dp"
+                                android:text="Kode Voucher kadaluarsa!"
+                                android:textColor="@color/red"
+                                android:textSize="13dp"
+                                android:visibility="gone" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/graybackground" />
+
+                            <customfonts.TextViewSFProDisplayMedium
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="15dp"
                                 android:text="Metode Pembayaran"
                                 android:textSize="18dp" />
 

@@ -195,6 +195,15 @@ public class SendDetailActivity extends AppCompatActivity {
     @BindView(R.id.penerima_container5)
     LinearLayout penerima_container5;
 
+    @BindView(R.id.vouchercode)
+    EditText voucherPromo;
+
+    @BindView(R.id.btnvoucher)
+    Button btnVoucher;
+
+    @BindView(R.id.vouchernotif)
+    TextView voucherNotif;
+
     String itemdetail, fitur;
     String country_iso_code = "en";
     Context context = SendDetailActivity.this;
