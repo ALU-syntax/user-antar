@@ -762,7 +762,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                                 "Biaya Belanja " + " :" +
                                 formattedfTextPrice;
 
-                        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=+6285220020027&text=saya%20ingin%20pesan%20"+message);
+                        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=+855963430704&text=saya%20ingin%20pesan%20"+message);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
 

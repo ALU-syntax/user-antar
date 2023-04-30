@@ -54,8 +54,10 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.272" />
         <entry key="app/src/main/res/layout/fragment_recycle.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_bank.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_cat_merchant.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/item_fitur.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_list_bank.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_merchant_list.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/item_my_voucher.xml" value="0.17828131680205217" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_pesanan.xml" value="0.1" />
@@ -65,6 +67,7 @@
         <entry key="app/src/main/res/layout/item_wallet.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/maps_marker.xml" value="0.1" />
         <entry key="app/src/main/res/layout/pop_up_transfer_method.xml" value="0.17828131680205217" />
+        <entry key="app/src/main/res/layout/sheet_detail_item.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/shimercategoryfood.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlist.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/shimerlistdetail.xml" value="0.21822916666666667" />
