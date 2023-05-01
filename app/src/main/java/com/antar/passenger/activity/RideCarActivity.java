@@ -189,6 +189,13 @@ public class RideCarActivity extends AppCompatActivity
     Button btnpromo;
     @BindView(R.id.promonotif)
     TextView promonotif;
+    @BindView(R.id.vouchercode)
+    EditText voucherCode;
+    @BindView(R.id.btnvoucher)
+    Button btnVoucher;
+    @BindView(R.id.vouchernotif)
+    TextView voucherNotif;
+
     String fitur, getbiaya, biayaminimum, biayaakhir, icondriver;
     private DriverRequest request;
     private GoogleMap gMap;
