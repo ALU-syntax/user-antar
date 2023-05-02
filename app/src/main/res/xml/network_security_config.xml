@@ -7,7 +7,7 @@
                 <certificates src="user" />
             </trust-anchors>
         </debug-overrides>
-<!--        <domain includeSubdomains="true">admin.sigesitpro.com</domain>-->
-        <domain includeSubdomains="true">antar.shop</domain>
+        <domain includeSubdomains="true">admin.sigesitpro.com</domain>
+<!--        <domain includeSubdomains="true">antar.shop</domain>-->
     </domain-config>
 </network-security-config>

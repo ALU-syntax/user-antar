@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
+    android:layout_marginBottom="15dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -14,10 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
+        android:foreground="@color/grey_transparant"
+        android:foregroundTint="@color/black"
         card_view:cardBackgroundColor="@color/white"
         card_view:cardCornerRadius="8dp"
         card_view:cardUseCompatPadding="false"
         card_view:elevation="15dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,6 +72,27 @@
                     android:backgroundTint="@color/orange_300"
                     android:textColor="@color/black"
                     tools:text="@tools:sample/first_names" />
+
+                <TextView
+                    android:id="@+id/voucher_fitur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_round_1"
+                    android:backgroundTint="@color/blue_200"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="AntCar"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:visibility="visible" />
 
             </RelativeLayout>
 

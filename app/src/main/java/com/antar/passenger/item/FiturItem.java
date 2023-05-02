@@ -47,6 +47,7 @@ public class FiturItem extends RecyclerView.Adapter<FiturItem.ItemRowHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ItemRowHolder holder, final int position) {
         final FiturDataModel singleItem = dataList.get(position);
+        System.out.println("debugHome: " + singleItem.getHome());
         holder.text.setText(singleItem.getFitur());
         PicassoTrustAll.getInstance(mContext)
                 .load(Constants.IMAGESFITUR + singleItem.getIcon())

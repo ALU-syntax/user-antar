@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Antar</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCRAWCfQNX8OfGFGFUogYSD5Myhuzot-TQ</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD7f9yZu_BLlz8gEiYyBfuehx6ZTFB5d-4</string>
     <string name="loginplaystore">821651748354835</string>
     <string name="introtext1">Daftar!</string>
     <string name="introdesc1">Antar transportasi lokal Indonesia</string>

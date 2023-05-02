@@ -13,11 +13,12 @@
         <entry key="app/src/main/res/drawable/bg_non_merchant.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_plus_minus.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bgwil.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/button_round_1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_all_berita.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_all_merchant.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_beritadetail.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_detail_merchant.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_detail_order.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_detail_order.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_detail_voucher.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_editprofile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_fitur.xml" value="0.21822916666666667" />
@@ -31,10 +32,10 @@
         <entry key="app/src/main/res/layout/activity_promo.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_provider_list.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_rent.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_ride.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_ride.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_select_voucher.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_send.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_send_detail.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/activity_send_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_terim.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_topup.xml" value="0.21822916666666667" />
@@ -59,8 +60,9 @@
         <entry key="app/src/main/res/layout/item_cat_merchant.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/item_fitur.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_list_bank.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_merchant.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/item_merchant_list.xml" value="0.1791363830696879" />
-        <entry key="app/src/main/res/layout/item_my_voucher.xml" value="0.17828131680205217" />
+        <entry key="app/src/main/res/layout/item_my_voucher.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/item_pesanan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_promo.xml" value="0.21822916666666667" />

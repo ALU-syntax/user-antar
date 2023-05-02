@@ -811,6 +811,31 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:orientation="horizontal">
+
+                                <customfonts.TextViewSFProDisplayRegular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:text="Voucher"
+                                    android:textSize="15dp" />
+
+                                <customfonts.TextViewSFProDisplayRegular
+                                    android:id="@+id/voucher"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="15dp" />
+
+                            </LinearLayout>
+
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
@@ -853,61 +878,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:background="@color/graybackground" />
-
-                                <customfonts.TextViewSFProDisplayMedium
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="15dp"
-                                    android:text="Voucher"
-                                    android:textSize="18dp" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginBottom="15dp"
-                                    android:background="@drawable/button_round_1"
-                                    android:backgroundTint="@color/backgroundgray"
-                                    android:orientation="horizontal">
-
-                                    <customfonts.EditTextSFProDisplayMedium
-                                        android:id="@+id/vouchercode"
-                                        android:layout_width="0dp"
-                                        android:layout_height="40dp"
-                                        android:layout_weight="1"
-                                        android:background="@color/transparent"
-                                        android:hint="Ada promo?"
-                                        android:paddingLeft="10dp"
-                                        android:textColor="@color/black"
-                                        android:textColorHint="@color/gray"
-                                        android:textSize="15dp" />
-
-                                    <customfonts.Button_SF_Pro_Display_Medium
-                                        android:id="@+id/btnvoucher"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="40dp"
-                                        android:background="@drawable/btn_min"
-                                        android:text="Kirim"
-                                        android:textAllCaps="false"
-                                        android:textColor="@color/white" />
-
-                                </LinearLayout>
-
-                                <customfonts.TextViewSFProDisplayMedium
-                                    android:id="@+id/vouchernotif"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="15dp"
-                                    android:text="Voucher kadaluarsa!"
-                                    android:textColor="@color/red"
-                                    android:textSize="13dp"
-                                    android:visibility="gone" />
 
                                 <View
                                     android:layout_width="match_parent"
@@ -964,6 +934,52 @@
                                     android:textSize="13dp"
                                     android:visibility="gone" />
 
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/graybackground" />
+
+                                <customfonts.TextViewSFProDisplayMedium
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="15dp"
+                                    android:text="Voucher"
+                                    android:textSize="18dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:background="@drawable/button_round_1"
+                                    android:backgroundTint="@color/backgroundgray"
+                                    android:orientation="horizontal">
+
+                                    <customfonts.EditTextSFProDisplayMedium
+                                        android:id="@+id/tv_voucher"
+                                        android:layout_width="0dp"
+                                        android:layout_height="40dp"
+                                        android:layout_weight="2"
+                                        android:background="@color/transparent"
+                                        android:hint="Punya Voucher?"
+                                        android:editable="false"
+                                        android:paddingLeft="10dp"
+                                        android:textColor="@color/black"
+                                        android:textColorHint="@color/gray"
+                                        android:textSize="15dp" />
+
+                                    <customfonts.Button_SF_Pro_Display_Medium
+                                        android:id="@+id/btn_select_voucher"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="40dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/btn_min"
+                                        android:text="Pilih Voucher"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white" />
+
+                                </LinearLayout>
 
                                 <View
                                     android:layout_width="match_parent"
@@ -993,7 +1009,10 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:layout_centerInParent="true"
-                                            android:layout_margin="10dp"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:layout_marginBottom="10dp"
                                             android:background="@drawable/ic_checklist"
                                             android:backgroundTint="@color/gray" />
                                     </RelativeLayout>

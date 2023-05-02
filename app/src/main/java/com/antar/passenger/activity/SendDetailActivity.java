@@ -1,6 +1,7 @@
 package com.antar.passenger.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -204,9 +205,17 @@ public class SendDetailActivity extends AppCompatActivity {
     @BindView(R.id.vouchernotif)
     TextView voucherNotif;
 
+    @BindView(R.id.tv_voucher)
+    EditText tvVoucher;
+    @BindView(R.id.btn_select_voucher)
+    Button btnSelectVoucher;
+    @BindView(R.id.voucher)
+    TextView voucher;
+
     String itemdetail, fitur;
     String country_iso_code = "en";
     Context context = SendDetailActivity.this;
+    private static final int REQUEST_VOUCHER_NOMINAL = 0;
     Realm realm;
     TransaksiSendModel transaksi;
     Thread thread;
@@ -229,6 +238,8 @@ public class SendDetailActivity extends AppCompatActivity {
     private DriverRequest request;
     private SessionWilayah sessionWilayah;
     private String keyss;
+    private long voucherNominal = 0;
+    private long distanceFinal = 0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -243,6 +254,7 @@ public class SendDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getkey();
         promocode = 0;
+        voucherNominal = 0;
         sessionWilayah = new SessionWilayah(this);
         realm = Realm.getDefaultInstance();
         User userLogin = BaseApp.getInstance(this).getLoginUser();
@@ -270,6 +282,15 @@ public class SendDetailActivity extends AppCompatActivity {
         driverAvailable = (ArrayList<DriverModel>) intent.getSerializableExtra("driver");
         int selectedFitur = intent.getIntExtra(FITUR_KEY, -1);
 
+        btnSelectVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SendDetailActivity.this, SelectVoucherActivity.class);
+                i.putExtra("fiturId", fiturModel.getIdFitur());
+                startActivityForResult(i, REQUEST_VOUCHER_NOMINAL);
+            }
+        });
+
         if (selectedFitur != -1)
             fiturModel = realm.where(FiturModel.class).equalTo("idFitur", selectedFitur).findFirst();
         assert fiturModel != null;
@@ -283,7 +304,8 @@ public class SendDetailActivity extends AppCompatActivity {
 //        Utility.currencyTXT(cost, String.valueOf(price), this);
 //        Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
         Utility.convertLocaleCurrencyTV(cost, this, String.valueOf(price));
-        Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
+        Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode), "-");
+        Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
         diskontext.setText("Discount " + fiturModel.getDiskon() + " with Wallet");
 
         checkedpaywallet = "0";
@@ -310,7 +332,7 @@ public class SendDetailActivity extends AppCompatActivity {
         }
         this.harga = biayaTotal;
 
-        final long finalBiayaTotal = biayaTotal;
+        final long finalBiayaTotal = biayaTotal - voucherNominal;
         String totalbiaya = String.valueOf(finalBiayaTotal);
 //        Utility.currencyTXT(priceText, totalbiaya, this);
         Utility.convertLocaleCurrencyTV(priceText, this, totalbiaya);
@@ -324,7 +346,8 @@ public class SendDetailActivity extends AppCompatActivity {
 //                    Utility.currencyTXT(priceText, totalbiaya, context);
 //                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
                     Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode), "-");
+                    Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(promocode), "-");
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -345,7 +368,8 @@ public class SendDetailActivity extends AppCompatActivity {
 //                    Utility.currencyTXT(priceText, totalbiaya, context);
 //                    Utility.currencyTXT(diskon, String.valueOf(promocode), SendDetailActivity.this);
                     Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, String.valueOf(promocode), "-");
+                    Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaywallet = "0";
@@ -359,7 +383,7 @@ public class SendDetailActivity extends AppCompatActivity {
                 }
             });
 
-            final long finalBiayaTotal1 = biayaTotal;
+            final long finalBiayaTotal1 = biayaTotal - voucherNominal;
             llcheckedwallet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -483,36 +507,36 @@ public class SendDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (sendername.getText().toString().isEmpty()) {
-                    notif("Sender name cant be empty!");
+                    notif("Sender name cant be empty!", false);
                 } else if (senderphone.getText().toString().isEmpty()) {
-                    notif("Sender phone cant be empty!");
+                    notif("Sender phone cant be empty!", false);
                 } else if (recievername.getText().toString().isEmpty()) {
-                    notif("Receiver cant be empty!");
+                    notif("Receiver cant be empty!", false);
                 } else if (recieverphone.getText().toString().isEmpty()) {
-                    notif("Receiver phone cant be empty!");
+                    notif("Receiver phone cant be empty!", false);
                 } else if(destinationLatLang2 != null) {
                     if (recievername2.getText().toString().isEmpty()) {
-                        notif("Second Receiver name cant be empty");
+                        notif("Second Receiver name cant be empty", false);
                     } else if (recieverphone2.getText().toString().isEmpty()) {
-                        notif("Second Receiver phone cant empty");
+                        notif("Second Receiver phone cant empty", false);
                     } else {
                         if (destinationLatLang3 != null) {
                             if (recievername3.getText().toString().isEmpty()) {
-                                notif("Third Receiver name cant be empty");
+                                notif("Third Receiver name cant be empty" , false);
                             } else if (recieverphone3.getText().toString().isEmpty()) {
-                                notif("Third Receiver phone cant empty");
+                                notif("Third Receiver phone cant empty", false);
                             } else {
                                 if (destinationLatLang4 != null) {
                                     if (recievername4.getText().toString().isEmpty()) {
-                                        notif("Fourth Receiver name cant be empty");
+                                        notif("Fourth Receiver name cant be empty", false);
                                     } else if (recieverphone4.getText().toString().isEmpty()) {
-                                        notif("Fourth Receiver phone cant empty");
+                                        notif("Fourth Receiver phone cant empty", false);
                                     } else {
                                         if (destinationLatLang5 != null) {
                                             if (recievername5.getText().toString().isEmpty()) {
-                                                notif("Fifth Receiver name cant be empty");
+                                                notif("Fifth Receiver name cant be empty",false);
                                             } else if (recieverphone5.getText().toString().isEmpty()) {
-                                                notif("Fifht Receiver phone cant empty");
+                                                notif("Fifht Receiver phone cant empty",false);
                                             } else {
                                                 onOrderButton();
                                             }
@@ -543,7 +567,7 @@ public class SendDetailActivity extends AppCompatActivity {
 
                 }
                 if (promokode.getText().toString().isEmpty()) {
-                    notif("Promo code cant be empty!");
+                    notif("Promo code cant be empty!", false);
                 } else {
                     promokodedata();
                 }
@@ -617,50 +641,54 @@ public class SendDetailActivity extends AppCompatActivity {
                         if (checkedpaywallet.equals("1")) {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
-                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
+                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode + voucherNominal));
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal, "-");
+                            Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
                         } else {
                             String diskontotal = String.valueOf(promocode);
-                            String totalbiaya = String.valueOf(harga - promocode);
+                            String totalbiaya = String.valueOf(harga - promocode - voucherNominal);
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context,totalbiaya);
                             Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
                         }
                     } else {
                         btnpromo.setEnabled(true);
                         btnpromo.setText("Use");
-                        notif("promo code not available!");
+                        notif("promo code not available!", false);
                         promocode = 0;
                         if (checkedpaywallet.equals("1")) {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
-                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
+                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode + voucherNominal));
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
                             Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
                         } else {
                             String diskontotal = String.valueOf(promocode);
-                            String totalbiaya = String.valueOf(harga - promocode);
+                            String totalbiaya = String.valueOf(harga - promocode - voucherNominal);
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, SendDetailActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
                             Utility.convertLocaleCurrencyTV(diskon, SendDetailActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(voucherNominal), "-");
                         }
                     }
                 } else {
-                    notif("error!");
+                    notif("error!", false);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<PromoResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("error");
+                notif("error", false);
             }
         });
     }
@@ -673,6 +701,20 @@ public class SendDetailActivity extends AppCompatActivity {
 
 //        Utility.currencyTXT(saldotext, saldoWallet, this);
         Utility.convertLocaleCurrencyTV(saldotext , this, saldoWallet);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_VOUCHER_NOMINAL && resultCode == Activity.RESULT_OK){
+            Utility.convertLocaleCurrencyTV(voucher, SendDetailActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)), "-");
+            tvVoucher.setText(data.getStringExtra("voucherName"));
+            voucherNominal = (long) data.getIntExtra("voucherNominal", 0);
+//            Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)));
+
+            notif("voucher berhasil digunakan", true);
+        }
     }
 
     @Override
@@ -887,7 +929,12 @@ public class SendDetailActivity extends AppCompatActivity {
         }
     }
 
-    public void notif(String text) {
+    public void notif(String text, boolean status) {
+        if (status){
+            rlnotif.setBackgroundColor(getResources().getColor(R.color.green));
+        }else{
+            rlnotif.setBackgroundColor(getResources().getColor(R.color.red));
+        }
         rlnotif.setVisibility(View.VISIBLE);
         textnotif.setText(text);
 
@@ -930,11 +977,11 @@ public class SendDetailActivity extends AppCompatActivity {
                                         if (response.isSuccessful()) {
                                             CheckStatusTransaksiResponse checkStatus = response.body();
                                             if (!Objects.requireNonNull(checkStatus).isStatus()) {
-                                                notif("Driver not found!");
+                                                notif("Driver not found!", false);
                                                 runOnUiThread(new Runnable() {
                                                     @Override
                                                     public void run() {
-                                                        notif("Driver not found!");
+                                                        notif("Driver not found!", false);
                                                     }
                                                 });
 
@@ -945,11 +992,11 @@ public class SendDetailActivity extends AppCompatActivity {
 
                                     @Override
                                     public void onFailure(@NonNull Call<CheckStatusTransaksiResponse> call, @NonNull Throwable t) {
-                                        notif("Driver not found!");
+                                        notif("Driver not found!", false);
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                notif("Driver not found!");
+                                                notif("Driver not found!", false);
                                                 rlprogress.setVisibility(View.GONE);
                                             }
                                         });
@@ -971,7 +1018,7 @@ public class SendDetailActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<SendResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("Your account has a problem, please contact passenger service!");
+                notif("Your account has a problem, please contact passenger service!", false);
                 rlprogress.setVisibility(View.GONE);
             }
         });

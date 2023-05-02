@@ -31,6 +31,7 @@
     <color name="delete_message_text">#b8b8b8</color>
     <color name="fiftypercenttranparent">#B96DC0FF</color>
     <color name="alphabet_text_selected_color">#3F51B5</color>
+    <color name="grey_transparant">#60989898</color>
     <color name="splashbackground">#E2F2FE</color>
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>

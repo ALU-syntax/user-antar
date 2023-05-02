@@ -89,9 +89,10 @@ import static com.antar.passenger.json.fcm.FCMType.ORDER;
 public class DetailOrderActivity extends AppCompatActivity implements ItemItem.OnCalculatePrice {
     private String keyss;
     public static final String FITUR_KEY = "FiturKey";
+    private static final int REQUEST_VOUCHER_NOMINAL = 0;
     private final int DESTINATION_ID = 1;
     TextView location, orderprice, deliveryfee, diskon, total, diskontext, topuptext, textnotif, saldotext
-            ,tvVoucher;
+            ,tvVoucher, voucher;
     Button order;
     RecyclerView rvmerchantnear;
     LinearLayout llcheckedcash, llcheckedwallet, llbtn;
@@ -115,7 +116,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
     double km;
     private DriverRequest request;
     private double jarak;
-    private long harga, promocode;
+    private long harga;
+    private long promocode = 0;
     private FiturModel designedFitur;
     private LatLng pickUpLatLang;
     private LatLng destinationLatLang;
@@ -127,6 +129,9 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
     private String saldoWallet, checkedpaywallet, checkedpaycash, idresto, alamatresto, namamerchant, back;
     private int total_harga_non_merchant =0;
     private SessionWilayah sessionWilayah;
+    private long voucherNominal = 0;
+
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -151,6 +156,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                             String format = String.format(Locale.US, "%.0f", ((float) (distancetext)) / 1000f);
                             long dist = Long.parseLong(format);
                             promocode = 0;
+                            voucherNominal = 0;
                             promokode.setText("");
                             distance = ((float) (distancetext)) / 1000f;
                             updateDistance();
@@ -165,12 +171,12 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                                     }
                                 });
                             } else {
-                                notif("destination too far away!");
+                                notifFalse("destination too far away!");
                                 order.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         if (readyToOrder()) {
-                                            notif("destination too far away!");
+                                            notifFalse("destination too far away!");
                                             back = "0";
                                         }
                                     }
@@ -193,6 +199,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         getkey();
         sessionWilayah = new SessionWilayah(this);
         promocode = 0;
+        voucherNominal = 0;
         realm = Realm.getDefaultInstance();
         rvmerchantnear = findViewById(R.id.merchantnear);
         location = findViewById(R.id.pickUpText);
@@ -220,6 +227,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         llbtn = findViewById(R.id.llbtn);
         tvVoucher = findViewById(R.id.tv_voucher);
         btnSelectVoucher = findViewById(R.id.btn_select_voucher);
+        voucher = findViewById(R.id.voucher);
 
         driverAvailable = new ArrayList<>();
         fitur = 0;
@@ -236,6 +244,15 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                 Intent intent = new Intent(DetailOrderActivity.this, PicklocationActivity.class);
                 intent.putExtra(PicklocationActivity.FORM_VIEW_INDICATOR, DESTINATION_ID);
                 startActivityForResult(intent, PicklocationActivity.LOCATION_PICKER_ID);
+            }
+        });
+
+        btnSelectVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailOrderActivity.this, SelectVoucherActivity.class);
+                i.putExtra("fiturId", designedFitur.getIdFitur());
+                startActivityForResult(i, REQUEST_VOUCHER_NOMINAL);
             }
         });
 
@@ -273,6 +290,9 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         keterangan = designedFitur.getKeterangan();
         icon = designedFitur.getIcon();
 
+//        System.out.println("debugFitur: " + designedFitur.getFitur());
+//        System.out.println("debugFitur: " + designedFitur.getIdFitur());
+
         RealmResults<FiturModel> fiturs = realm.where(FiturModel.class).findAll();
 
         for (FiturModel fitur : fiturs) {
@@ -288,7 +308,8 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
         total.setText("wait");
         deliveryfee.setText("wait");
 //        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
-        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
+        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode), "-");
+        Utility.convertLocaleCurrencyTV(voucher, DetailOrderActivity.this, String.valueOf(voucherNominal), "-");
         User userLogin = BaseApp.getInstance(this).getLoginUser();
         saldoWallet = String.valueOf(userLogin.getWalletSaldo());
 
@@ -306,7 +327,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 
                 }
                 if (promokode.getText().toString().isEmpty()) {
-                    notif("Promo code cant be empty!");
+                    notifFalse("Promo code cant be empty!");
                 } else {
                     promokodedata();
                 }
@@ -344,7 +365,20 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 
     }
 
-    public void notif(String text) {
+    public void notifTrue(String text) {
+        rlnotif.setBackgroundColor(getResources().getColor(R.color.green));
+        rlnotif.setVisibility(View.VISIBLE);
+        textnotif.setText(text);
+
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                rlnotif.setVisibility(View.GONE);
+            }
+        }, 3000);
+    }
+
+    public void notifFalse(String text) {
+        rlnotif.setBackgroundColor(getResources().getColor(R.color.red));
         rlnotif.setVisibility(View.VISIBLE);
         textnotif.setText(text);
 
@@ -397,6 +431,15 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                 }
             }
         }
+
+        if(requestCode == REQUEST_VOUCHER_NOMINAL && resultCode == Activity.RESULT_OK){
+            Utility.convertLocaleCurrencyTV(voucher, DetailOrderActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)), "-");
+            tvVoucher.setText(data.getStringExtra("voucherName"));
+            voucherNominal = (long) data.getIntExtra("voucherNominal", 0);
+//            Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)));
+            updateDistance();
+        }
+
     }
 
     private void loadItem() {
@@ -467,31 +510,34 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
             public void onResponse(@NonNull Call<PromoResponseJson> call, @NonNull Response<PromoResponseJson> response) {
                 if (response.isSuccessful()) {
                     if (Objects.requireNonNull(response.body()).getMessage().equalsIgnoreCase("success")) {
-                        final long finalBiayaTotalpay = foodCostLong + harga;
+                        final long finalBiayaTotalpay = foodCostLong + harga - voucherNominal;
                         btnpromo.setEnabled(true);
                         btnpromo.setText("Use");
                         if (response.body().getType().equals("persen")) {
                             promocode = (Long.parseLong(response.body().getNominal()) * finalBiayaTotalpay) / 100;
+                            Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
                         } else {
                             promocode = Long.parseLong(response.body().getNominal());
+                            Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
                         }
                         updateDistance();
+                        notifTrue("kode promo berhasil digunakan");
                     } else {
-                        notif("kode promo tidak berlaku!");
                         btnpromo.setEnabled(true);
                         btnpromo.setText("Use");
                         promocode = 0;
                         updateDistance();
+                        notifFalse("kode promo tidak berlaku!");
                     }
                 } else {
-                    notif("error!");
+                    notifFalse("error!");
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<PromoResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("error");
+                notifFalse("error");
             }
         });
     }
@@ -573,12 +619,12 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 
 //        Utility.currencyTXT(deliveryfee, String.valueOf(deliveryCostLong), this);
         Utility.convertLocaleCurrencyTV(deliveryfee, this, String.valueOf(deliveryCostLong));
-        final long finalBiayaTotalpay = foodCostLong + harga;
+        final long finalBiayaTotalpay = foodCostLong + harga - voucherNominal;
 
 //        Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
 //        Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
-        Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay));
-        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
+        Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
+        Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode), "-");
         long saldokini = Long.parseLong(saldoWallet);
         if (saldokini < ((foodCostLong + harga) - (finalBiayaTotalpay * Double.parseDouble(biayaakhir)))) {
             llcheckedcash.setOnClickListener(new View.OnClickListener() {
@@ -587,7 +633,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 //                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
 //                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
                     Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
-                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode), "-");
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaycash = "1";
@@ -610,7 +656,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 //                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - promocode), DetailOrderActivity.this);
 //                    Utility.currencyTXT(diskon, String.valueOf(promocode), DetailOrderActivity.this);
                     Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - promocode));
-                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode));
+                    Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, String.valueOf(promocode), "-");
                     checkedcash.setSelected(true);
                     checkedwallet.setSelected(false);
                     checkedpaycash = "1";
@@ -628,13 +674,13 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
             llcheckedwallet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    long diskonwallet = (long) ((finalBiayaTotalpay * Double.parseDouble(biayaakhir)) + promocode);
+                    long diskonwallet = (long) ((finalBiayaTotalpay * Double.parseDouble(biayaakhir)) - promocode);
                     Log.e("distance", String.valueOf((foodCostLong + harga) - (finalBiayaTotalpay * Double.parseDouble(biayaakhir))));
                     String totalwallet = String.valueOf(diskonwallet);
 //                    Utility.currencyTXT(diskon, totalwallet, DetailOrderActivity.this);
 //                    Utility.currencyTXT(total, String.valueOf(finalBiayaTotalpay - diskonwallet), DetailOrderActivity.this);
                     Utility.convertLocaleCurrencyTV(diskon, DetailOrderActivity.this, totalwallet);
-                    Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - diskonwallet));
+                    Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(finalBiayaTotalpay - diskonwallet), "-");
                     checkedcash.setSelected(false);
                     checkedwallet.setSelected(true);
                     checkedpaycash = "0";
@@ -747,7 +793,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                 .setPositiveButton("Pesan Manual", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String message = "BUMDES-KU"
+                        String message = "ANTar"
                                 + "\n" +
                                 "Asal : " + location.getText().toString()
                                 + "\n " +
@@ -842,11 +888,11 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
                                         if (response.isSuccessful()) {
                                             CheckStatusTransaksiResponse checkStatus = response.body();
                                             if (!Objects.requireNonNull(checkStatus).isStatus()) {
-                                                notif("Driver not found!");
+                                                notifFalse("Driver not found!");
                                                 runOnUiThread(new Runnable() {
                                                     @Override
                                                     public void run() {
-                                                        notif("Driver not found!");
+                                                        notifFalse("Driver not found!");
                                                     }
                                                 });
 
@@ -861,11 +907,11 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
 
                                     @Override
                                     public void onFailure(@NonNull Call<CheckStatusTransaksiResponse> call, @NonNull Throwable t) {
-                                        notif("Driver not found!");
+                                        notifFalse("Driver not found!");
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                notif("Driver not found!");
+                                                notifFalse("Driver not found!");
                                             }
                                         });
 
@@ -890,7 +936,7 @@ public class DetailOrderActivity extends AppCompatActivity implements ItemItem.O
             @Override
             public void onFailure(@NonNull Call<RideCarResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("Your account has a problem, please contact passenger service!");
+                notifFalse("Your account has a problem, please contact passenger service!");
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
                         finish();

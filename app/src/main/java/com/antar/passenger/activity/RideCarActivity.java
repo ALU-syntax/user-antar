@@ -2,6 +2,7 @@ package com.antar.passenger.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -116,6 +117,7 @@ public class RideCarActivity extends AppCompatActivity
     public static final String FITUR_KEY = "FiturKey";
     private static final String TAG = "RideCarActivity";
     private static final int REQUEST_PERMISSION_LOCATION = 991;
+    private static final int REQUEST_VOUCHER_NOMINAL = 0;
     String ICONFITUR;
     TransaksiModel transaksi;
     Thread thread;
@@ -189,12 +191,12 @@ public class RideCarActivity extends AppCompatActivity
     Button btnpromo;
     @BindView(R.id.promonotif)
     TextView promonotif;
-    @BindView(R.id.vouchercode)
-    EditText voucherCode;
-    @BindView(R.id.btnvoucher)
-    Button btnVoucher;
-    @BindView(R.id.vouchernotif)
-    TextView voucherNotif;
+    @BindView(R.id.tv_voucher)
+    EditText tvVoucher;
+    @BindView(R.id.btn_select_voucher)
+    Button btnSelectVoucher;
+    @BindView(R.id.voucher)
+    TextView voucher;
 
     String fitur, getbiaya, biayaminimum, biayaakhir, icondriver;
     private DriverRequest request;
@@ -217,10 +219,12 @@ public class RideCarActivity extends AppCompatActivity
     private boolean isMapReady = false;
     private SessionWilayah sessionWilayah;
     private String keyss;
+    private long voucherNominal = 0;
+    private long distanceFinal = 0;
     private okhttp3.Callback updateRouteCallback = new okhttp3.Callback() {
         @Override
         public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
-            notif("error connection, please select destination again!");
+            notif("error connection, please select destination again!", false);
             setDestinationContainer.setVisibility(View.VISIBLE);
             rlprogress.setVisibility(View.GONE);
         }
@@ -230,6 +234,7 @@ public class RideCarActivity extends AppCompatActivity
             if (response.isSuccessful()) {
                 final String json = Objects.requireNonNull(response.body()).string();
                 final long distance = MapDirectionAPI.getDistance(RideCarActivity.this, json);
+                distanceFinal = distance;
                 final String time = MapDirectionAPI.getTimeDistance(RideCarActivity.this, json);
                 if (distance >= 0) {
                     RideCarActivity.this.runOnUiThread(new Runnable() {
@@ -241,18 +246,20 @@ public class RideCarActivity extends AppCompatActivity
                             if (dist < maksimum) {
                                 rlprogress.setVisibility(View.GONE);
                                 promocode = 0;
+                                voucherNominal = 0;
                                 promokode.setText("");
                                 updateLineDestination(json);
                                 updateDistance(distance);
                                 fiturtext.setText(time);
                                 String diskontotal = String.valueOf(promocode);
 //                                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
-                                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                                Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                             } else {
                                 detail.setVisibility(View.GONE);
                                 setDestinationContainer.setVisibility(View.VISIBLE);
                                 rlprogress.setVisibility(View.GONE);
-                                notif("destination too far away!");
+                                notif("destination too far away!", false);
                             }
 
                         }
@@ -331,10 +338,19 @@ public class RideCarActivity extends AppCompatActivity
 
                 }
                 if (promokode.getText().toString().isEmpty()) {
-                    notif("Promo code cant be empty!");
+                    notif("Promo code cant be empty!",false);
                 } else {
                     promokodedata();
                 }
+            }
+        });
+
+        btnSelectVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RideCarActivity.this, SelectVoucherActivity.class);
+                i.putExtra("fiturId", designedFitur.getIdFitur());
+                startActivityForResult(i, REQUEST_VOUCHER_NOMINAL);
             }
         });
 
@@ -430,6 +446,7 @@ public class RideCarActivity extends AppCompatActivity
                             promocode = Long.parseLong(response.body().getNominal());
                         }
                         Log.e("", String.valueOf(promocode));
+                        notif("kode promo berhasil digunakan", true);
                         if (checkedpaywallet.equals("1")) {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
@@ -437,46 +454,51 @@ public class RideCarActivity extends AppCompatActivity
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                            Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                         } else {
                             String diskontotal = String.valueOf(promocode);
-                            String totalbiaya = String.valueOf(harga - promocode);
+                            String totalbiaya = String.valueOf(harga - promocode - voucherNominal);
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                            Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                         }
                     } else {
                         btnpromo.setEnabled(true);
                         btnpromo.setText("Use");
-                        notif("promo code not available!");
+                        notif("promo code not available!", false);
                         promocode = 0;
                         if (checkedpaywallet.equals("1")) {
                             long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                             String diskontotal = String.valueOf(diskonwallet + promocode);
-                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode));
+
+                            String totalbiaya = String.valueOf(harga - (diskonwallet + promocode + voucherNominal));
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
-                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                            Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                         } else {
                             String diskontotal = String.valueOf(promocode);
-                            String totalbiaya = String.valueOf(harga - promocode);
+                            String totalbiaya = String.valueOf(harga - promocode - voucherNominal);
 //                            Utility.currencyTXT(priceText, totalbiaya, context);
 //                            Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
                             Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya);
                             Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                            Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                         }
                     }
                 } else {
-                    notif("error!");
+                    notif("error!", false);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<PromoResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("error");
+                notif("error", false);
             }
         });
     }
@@ -506,7 +528,13 @@ public class RideCarActivity extends AppCompatActivity
         });
     }
 
-    public void notif(String text) {
+    public void notif(String text, boolean status) {
+        if (status){
+            rlnotif.setBackgroundColor(getResources().getColor(R.color.green));
+        }else{
+            rlnotif.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+
         rlnotif.setVisibility(View.VISIBLE);
         textnotif.setText(text);
 
@@ -560,6 +588,15 @@ public class RideCarActivity extends AppCompatActivity
                 Status status = Autocomplete.getStatusFromIntent(data);
                 Log.i(TAG, Objects.requireNonNull(status.getStatusMessage()));
             }
+        }
+
+        if(requestCode == REQUEST_VOUCHER_NOMINAL && resultCode == Activity.RESULT_OK){
+            Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)), "-");
+            tvVoucher.setText(data.getStringExtra("voucherName"));
+            voucherNominal = (long) data.getIntExtra("voucherNominal", 0);
+//            Utility.convertLocaleCurrencyTV(total, DetailOrderActivity.this, String.valueOf(data.getIntExtra("voucherNominal", 0)));
+            updateDistance(distanceFinal);
+            notif("voucher berhasil digunakan", true);
         }
     }
 
@@ -855,7 +892,7 @@ public class RideCarActivity extends AppCompatActivity
         }
         this.harga = biayaTotal;
 
-        final long finalBiayaTotal = biayaTotal;
+        final long finalBiayaTotal = biayaTotal - voucherNominal;
         String totalbiaya = String.valueOf(finalBiayaTotal);
 //        Utility.currencyTXT(priceText, totalbiaya, this);
         Utility.convertLocaleCurrencyTV(priceText, this, totalbiaya);
@@ -868,7 +905,8 @@ public class RideCarActivity extends AppCompatActivity
                 Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya12);
                 String diskontotal = String.valueOf(promocode);
 //                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
-                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
                 checkedcash.setSelected(true);
                 checkedwallet.setSelected(false);
                 checkedpaywallet = "0";
@@ -887,7 +925,8 @@ public class RideCarActivity extends AppCompatActivity
 //                Utility.currencyTXT(priceText, totalbiaya1, context);
 //                Utility.currencyTXT(diskon, diskontotal, RideCarActivity.this);
                 Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya1);
-                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal);
+                Utility.convertLocaleCurrencyTV(diskon, RideCarActivity.this, diskontotal, "-");
+                Utility.convertLocaleCurrencyTV(voucher, RideCarActivity.this, String.valueOf(voucherNominal), "-");
 
                 checkedcash.setSelected(true);
                 checkedwallet.setSelected(false);
@@ -906,8 +945,9 @@ public class RideCarActivity extends AppCompatActivity
                 long diskonwallet = (long) (Double.parseDouble(biayaakhir) * harga);
                 String totalwallet = String.valueOf(diskonwallet + promocode);
 //                Utility.currencyTXT(diskon, totalwallet, context);
-                Utility.convertLocaleCurrencyTV(diskon, context, totalwallet);
-                String totalbiaya13 = String.valueOf(finalBiayaTotal1 - (diskonwallet + promocode));
+                Utility.convertLocaleCurrencyTV(diskon, context, totalwallet, "-");
+                Utility.convertLocaleCurrencyTV(voucher, context, String.valueOf(voucherNominal), "-");
+                String totalbiaya13 = String.valueOf(finalBiayaTotal1 - (diskonwallet + promocode + voucherNominal));
 //                Utility.currencyTXT(priceText, totalbiaya13, context);
                 Utility.convertLocaleCurrencyTV(priceText, context, totalbiaya13);
                 checkedcash.setSelected(false);
@@ -1078,11 +1118,11 @@ public class RideCarActivity extends AppCompatActivity
                                             CheckStatusTransaksiResponse checkStatus = response.body();
 //                                            Toast.makeText(RideCarActivity.this, ""+ checkStatus.getMessage(), Toast.LENGTH_LONG).show();
                                             if (!Objects.requireNonNull(checkStatus).isStatus()) {
-                                                notif("Driver not found!");
+                                                notif("Driver not found!", false);
                                                 runOnUiThread(new Runnable() {
                                                     @Override
                                                     public void run() {
-                                                        notif("Driver not found!");
+                                                        notif("Driver not found!", false);
                                                     }
                                                 });
 
@@ -1099,11 +1139,11 @@ public class RideCarActivity extends AppCompatActivity
 
                                     @Override
                                     public void onFailure(@NonNull Call<CheckStatusTransaksiResponse> call, @NonNull Throwable t) {
-                                        notif("Driver not found!");
+                                        notif("Driver not found!", false);
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                notif("Driver not found!");
+                                                notif("Driver not found!", false);
                                             }
                                         });
 
@@ -1128,7 +1168,7 @@ public class RideCarActivity extends AppCompatActivity
             @Override
             public void onFailure(@NonNull Call<RideCarResponseJson> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                notif("Your account has a problem, please contact passenger service!");
+                notif("Your account has a problem, please contact passenger service!", false);
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
                         finish();
@@ -1258,7 +1298,7 @@ public class RideCarActivity extends AppCompatActivity
                 .setPositiveButton("Book Manual", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String message = "Antar"
+                        String message = "ANTar"
                                 + "\n" +
                                 "Asal : " + pickUpText.getText().toString()
                                 + "\n " +
@@ -1268,7 +1308,7 @@ public class RideCarActivity extends AppCompatActivity
                                 "TOTAL HARGA " + " :" +
                                 formattedTextPrice;
 
-                        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=+6285220020027&text=Saya%20ingin%20%20pesan%20"+message);
+                        Uri uri = Uri.parse("https://api.whatsapp.com/send?phone=+855963430704&text=Saya%20ingin%20%20pesan%20"+message);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }

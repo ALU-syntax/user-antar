@@ -332,8 +332,21 @@ public class DetailMerchantActivity extends AppCompatActivity implements ItemIte
                         int totalMenitBuka = (jamBuka * 60) + menitBuka;
                         int totalMenitTutup = (jamTutup * 60) + menitTutup;
 
+//                        System.out.println("debugTimeTotalMenitNow: " + totalMenitNow);
+//                        System.out.println("debugTimeTotalMenitTutup: " + totalMenitTutup);
+//                        System.out.println("debugTimeTotalMenitBuka: " + totalMenitBuka);
+
+
+
                         Calendar now = Calendar.getInstance();
                         int totalMenitNow = (now.get(Calendar.HOUR_OF_DAY) * 60) + now.get(Calendar.MINUTE);
+
+                        System.out.println("debugJamBuka: " + jamBuka);
+                        System.out.println("debugJamTutup: " + jamTutup);
+                        System.out.println("debugTimeTotalMenitBuka: " + totalMenitBuka);
+                        System.out.println("debugTimeTotalMenitTutup: " + totalMenitTutup);
+                        System.out.println("debugTimeTotalMenitNow: " + totalMenitNow);
+
 
                         if (totalMenitNow <= totalMenitTutup && totalMenitNow >= totalMenitBuka) {
                             tutup.setVisibility(View.GONE);
